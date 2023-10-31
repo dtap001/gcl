@@ -1,0 +1,18 @@
+---
+# description: Very usefull stuff. install this and that!💣
+  - name: Shell Examples
+    hosts: all
+    vars_prompt:
+    - name: url
+      prompt: What to curl?
+      private: no
+    pre_tasks:
+      - assert: 
+          that: "'https://' in url"
+    tasks:
+    - name: Check Date with Shell command
+      shell:
+         "curl -v {{url}}"
+      register: testcommand
+      tags: testcommand
+    - debug: msg="{{testcommand.stdout}}"

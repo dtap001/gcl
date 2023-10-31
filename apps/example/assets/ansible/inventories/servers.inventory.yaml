@@ -1,0 +1,15 @@
+all:
+  children:
+    all_stagers:
+      hosts:
+        stager1:
+          ansible_host: myserver1.com
+          ansible_user: '{{ server_user }}'
+        stager2:
+          ansible_host: myserver2.com
+          ansible_user: '{{ server_user }}'
+        stager3:
+          ansible_host: myserver3.com
+          ansible_user: '{{ server_user }}'
+  vars:
+    server_user: admin

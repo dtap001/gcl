@@ -1,0 +1,7 @@
+- name: My first play
+  hosts: all
+  tasks:
+   - name: ping tasks
+     import_tasks: ../tasks/ping.task.yaml
+   - name: docker info  tasks
+     import_tasks: ../tasks/docker-info.task.yaml
