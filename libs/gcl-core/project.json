@@ -4,15 +4,25 @@
   "sourceRoot": "libs/gcl-core/src",
   "projectType": "library",
   "targets": {
+    "release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "packageJsonDir": "libs/gcl-core",
+        "commitMessage": "chore(release-${PROJECT_NAME}): ${nextRelease.version}",
+        "npm": true,
+        "repositoryUrl": "https://github.com/dtap001/gcl",
+        "branches": ["*", "feat/init"]
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/gcl-core/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/gcl-core/jest.config.ts",
