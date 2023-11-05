@@ -1,0 +1,14 @@
+---
+- name: Get running Docker containers
+  command: sudo docker ps
+  register: docker_containers_output
+- name: Display running Docker containers
+  debug:
+    var: docker_containers_output.stdout_lines
+
+- name: Get docker compose status
+  command: sudo docker compose ls
+  register: docker_compose_ls
+- name: Display Docker Compose status
+  debug:
+    var: docker_compose_ls.results

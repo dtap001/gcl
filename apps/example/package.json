@@ -1,0 +1,15 @@
+{
+  "name": "@gcl/example",
+  "version": "0.0.2",
+  "bin": {
+    "example": "./main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dtap001/gcl",
+    "directory": "packages/ts-library"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

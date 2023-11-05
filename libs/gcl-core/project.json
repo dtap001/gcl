@@ -1,0 +1,40 @@
+{
+  "name": "@gcl/gcl-core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/gcl-core/src",
+  "projectType": "library",
+  "targets": {
+    "release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "packageJsonDir": "libs/gcl-core",
+        "commitMessage": "chore(release-${PROJECT_NAME}): ${nextRelease.version}",
+        "npm": true,
+        "repositoryUrl": "https://github.com/dtap001/gcl",
+        "branches": ["*", "feat/init"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/gcl-core/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/gcl-core/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

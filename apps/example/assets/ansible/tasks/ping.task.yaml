@@ -1,0 +1,3 @@
+---
+- name: Ping remote host
+  ansible.builtin.ping:
