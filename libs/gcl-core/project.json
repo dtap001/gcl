@@ -58,7 +58,7 @@
       "configurations": {
         "production": {
           "sourceMap": false,
-          "externalDependencies": "none",
+          "externalDependencies": "all",
           "vendorChunk": true,
           "webpackConfig": "libs/gcl-core/webpack.config.js",
           "isolatedConfig": true
