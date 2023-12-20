@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/dtap001/gcl/compare/v1.1.1...v1.1.2) (2023-12-20)
+
+
+### Bug Fixes
+
+* wrong import and " to ' ([94cf3b7](https://github.com/dtap001/gcl/commit/94cf3b76e6163e6d477bce234c7159fe23ca1139))
+
 ## [1.1.1](https://github.com/dtap001/gcl/compare/v1.1.0...v1.1.1) (2023-12-20)
 
 
