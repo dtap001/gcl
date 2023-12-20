@@ -52,7 +52,8 @@
         "outputPath": "dist/libs/gcl-core",
         "main": "libs/gcl-core/src/index.ts",
         "tsConfig": "libs/gcl-core/tsconfig.spec.json",
-        "isolatedConfig": true
+        "isolatedConfig": true,
+        "generatePackageJson":true
       },
       "configurations": {
         "production": {
