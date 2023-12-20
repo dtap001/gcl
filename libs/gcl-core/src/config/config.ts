@@ -4,6 +4,7 @@ import path from "path";
 import yaml from "js-yaml";
 
 class GCLConfig {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
   defaultHost: string;
   lastUpdateCheck: Date;
@@ -30,9 +31,11 @@ class Configuration {
   );
   // Add this method to the GCLConfigUtil class
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public static setConfigValue(key: string, value: any): void {
     const config = this.getConfig();
 
+    // eslint-disable-next-line no-prototype-builtins
     if (config.hasOwnProperty(key)) {
       config[key] = value;
       this.saveConfig(config);

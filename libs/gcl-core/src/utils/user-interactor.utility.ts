@@ -1,4 +1,4 @@
-import prompts, { type Answers } from 'prompts'
+import prompts from 'prompts'
 import { Fzf } from 'fzf'
 import promptSync from "prompt-sync";
 

@@ -3,7 +3,7 @@ import { RunCommand } from './commands/run.command';
 import { AddHostCommand } from './commands/add-host.command';
 import { ConfigCommand } from './commands/config.command';
 import { AddFolderCommand } from './commands/add-folder.command';
-import { Argument, Command, Option } from 'commander';
+import { Command } from 'commander';
 import { exit } from 'process';
 
 export class Wrapper {
@@ -11,11 +11,11 @@ export class Wrapper {
     const program = new Command();
     program.showSuggestionAfterError(true);
 
-    await InstallUtilities.checkForUpdates()
+    await InstallUtilities.checkForUpdates();
 
     await InstallUtilities.checkAnsibleInstallation();
     await InstallUtilities.checkSSHPassIntallation().catch((err) => {
-      console.error(`Failed to continue. Please fix ${err.message}`)
+      console.error(`Failed to continue. Please fix ${err.message}`);
       exit();
     });
 
@@ -23,7 +23,7 @@ export class Wrapper {
       .command('version')
       .description('Get running version')
       .action(async () => {
-        console.log(process.env.npm_package_version || '0.0.0')
+        console.log(process.env.npm_package_version || '0.0.0');
       });
     program
       .command('run')
@@ -46,7 +46,9 @@ export class Wrapper {
       });
     program
       .command('config')
-      .description('by default it will print the current config. Use --edit to change it')
+      .description(
+        'by default it will print the current config. Use --edit to change it'
+      )
       .option('--edit', 'edit config')
       .action(async (options) => {
         const configCommand = new ConfigCommand();

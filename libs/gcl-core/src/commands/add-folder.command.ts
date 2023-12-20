@@ -1,6 +1,5 @@
 import path from "path";
 import { Configuration } from "../config/config";
-import { Utilities } from "../utils/general.utilities";
 import { UserInteractor } from "../utils/user-interactor.utility";
 export class AddFolderCommand {
   async run() {

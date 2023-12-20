@@ -1,6 +1,5 @@
 import { execSync } from "child_process";
 import { Configuration } from "../config/config";
-import { Utilities } from "./general.utilities";
 import { UserInteractor } from "./user-interactor.utility";
 
 export class InstallUtilities {

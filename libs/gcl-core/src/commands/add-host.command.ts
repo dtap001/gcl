@@ -38,6 +38,7 @@ export class AddHostCommand {
         "Enter the new inventory file name: ",
         (input: string) => {
           const rule = "inventory.yaml";
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
           const result = require("validator").contains(input, rule);
           if (!result) {
             console.warn(`Input ${input} must contain ${rule}`);
@@ -53,12 +54,14 @@ export class AddHostCommand {
     const hostName = UserInteractor.prompt(
       "Enter the host name: ",
       (input: string) => {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         return require("validator").contains(input, "");
       }
     );
     const hostAddress = UserInteractor.prompt(
       "Enter the host address: ",
       (input: string) => {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         return require("validator").contains(input, "");
       }
     );
@@ -83,7 +86,7 @@ export class AddHostCommand {
     groupName: string,
     hostAddress: string
   ) {
-    let inventoryData = Utilities.readYamlFile(inventoryPath) || {};
+    const inventoryData = Utilities.readYamlFile(inventoryPath) || {};
 
     if (!inventoryData.all) {
       inventoryData.all = { children: {} };
