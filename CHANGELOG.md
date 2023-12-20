@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/dtap001/gcl/compare/v1.0.0...v1.1.0) (2023-12-20)
+
+
+### Features
+
+* webpack ([1068421](https://github.com/dtap001/gcl/commit/106842105f1ba60bfbcbdb3f4138731b331d40a4))
+
+
+### Bug Fixes
+
+* add packagejson to webpack ([16750ab](https://github.com/dtap001/gcl/commit/16750ab6cc82e48c5713ad65c89b1fa4c5b72c7b))
+
 ## 1.0.0 (2023-12-20)
 
 
