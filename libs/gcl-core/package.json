@@ -1,4 +1,18 @@
 {
-  "name": "@gcl/gcl-core",
-  "version": "1.0.0"
+  "name": "@gcl/core",
+  "version": "1.0.0",
+  "type":"commonjs",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/dtap001/gcl",
+    "directory": "libs/gcl-core"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  }
 }
