@@ -1,4 +1,4 @@
-name: PUBLISH
+name: "PUBLISH 🚀"
 on:
   push:
     branches:
@@ -16,7 +16,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx nx run @gcl/core:release
+      - run: npx nx run @godcli/core:release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

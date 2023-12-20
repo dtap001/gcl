@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build.example": "npx nx run @gcl/example:build"
+    "build.example": "npx nx run @godcli/example:build"
   },
   "private": true,
   "dependencies": {

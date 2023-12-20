@@ -1,5 +1,5 @@
 {
-  "name": "@gcl/core",
+  "name": "@godcli/core",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/gcl-core/src",
   "projectType": "library",
@@ -28,7 +28,7 @@
     "release": {
       "executor": "nx-release:build-update-publish",
       "options": {
-        "libName": "@gcl/core"
+        "libName": "@godcli/core"
       }
     },
     "build": {

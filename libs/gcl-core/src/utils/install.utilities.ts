@@ -81,7 +81,7 @@ export class InstallUtilities {
 
       Configuration.setLastUpdateCheck(now);
       try {
-        const stdout = execSync("npm update -g @gcl/gcl", { encoding: 'utf-8' });
+        const stdout = execSync("npm update -g @godcli/gcl", { encoding: 'utf-8' });
         console.log(`Successfully updated my-cli-tool: ${stdout}`);
       } catch (error) {
         console.error(`Error updating my-cli-tool: ${error.message}`);

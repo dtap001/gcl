@@ -1,5 +1,5 @@
 {
-  "name": "@gcl/example",
+  "name": "@godcli/example",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/example/src",
   "projectType": "application",

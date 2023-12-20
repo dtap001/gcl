@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gcl/core": ["libs/gcl-core/src/index.ts"]
+      "@godcli/core": ["libs/gcl-core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
