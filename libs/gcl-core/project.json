@@ -30,6 +30,16 @@
       "options": {
         "libName": "@gcl/core"
       }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/gcl-core",
+        "main": "libs/gcl-core/src/index.ts",
+        "tsConfig": "libs/gcl-core/tsconfig.lib.json",
+        "assets": ["libs/gcl-core/*.md"]
+      }
     }
   },
   "tags": []
