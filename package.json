@@ -25,6 +25,7 @@
     "@nx/jest": "17.0.3",
     "@nx/js": "17.0.3",
     "@nx/node": "17.0.3",
+    "@nx/webpack": "^17.2.6",
     "@nx/workspace": "17.0.3",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^11.1.0",

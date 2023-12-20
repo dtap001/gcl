@@ -2,6 +2,7 @@
   "name": "@godcli/core",
   "version": "1.0.0",
   "type": "commonjs",
+  "description": "This package helps you to interactively select and run ansible playbooks on your inventory of hosts.",
   "repository": {
     "type": "git",
     "url": "https://github.com/dtap001/gcl",

@@ -31,7 +31,7 @@
         "libName": "@godcli/core"
       }
     },
-    "build": {
+    "build_old": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -39,6 +39,29 @@
         "main": "libs/gcl-core/src/index.ts",
         "tsConfig": "libs/gcl-core/tsconfig.lib.json",
         "assets": ["libs/gcl-core/*.md"]
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "verbose": true,
+      "defaultConfiguration": "production",
+      "options": {
+        "webpackConfig": "libs/gcl-core/webpack.config.js",
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/libs/gcl-core",
+        "main": "libs/gcl-core/src/index.ts",
+        "tsConfig": "libs/gcl-core/tsconfig.spec.json",
+        "isolatedConfig": true
+      },
+      "configurations": {
+        "production": {
+          "sourceMap": false,
+          "externalDependencies": "none",
+          "vendorChunk": true,
+          "webpackConfig": "libs/gcl-core/webpack.config.js",
+          "isolatedConfig": true
+        }
       }
     }
   },
