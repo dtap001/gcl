@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/dtap001/gcl/compare/v1.1.0...v1.1.1) (2023-12-20)
+
+
+### Bug Fixes
+
+* no more vendorjs ([164ecf7](https://github.com/dtap001/gcl/commit/164ecf73a66c8561c3102d8bb701027ec269c82c))
+
 ## [1.1.0](https://github.com/dtap001/gcl/compare/v1.0.0...v1.1.0) (2023-12-20)
 
 
