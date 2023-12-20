@@ -1,6 +1,6 @@
 import prompts from 'prompts'
 import { Fzf } from 'fzf'
-import promptSync from "prompt-sync";
+import promptSync from 'prompt-sync';
 
 export class UserInteractor {
   static async selectFromList(question: string, list: string[]): Promise<string> {

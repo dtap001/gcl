@@ -1,9 +1,9 @@
-import { Utilities } from "../utils/general.utilities";
-import { PlaybookUtilities } from "../utils/playbook.utilities";
-import { InventoryUtilities } from "../utils/inventory.utilities";
-import { Configuration } from "../config/config";
-import { execSync } from "child_process";
-import path from "path";
+import { Utilities } from '../utils/general.utilities';
+import { PlaybookUtilities } from '../utils/playbook.utilities';
+import { InventoryUtilities } from '../utils/inventory.utilities';
+import { Configuration } from '../config/config';
+import { execSync } from 'child_process';
+import path from 'path';
 
 export class RunCommand {
   async run() {
@@ -15,13 +15,13 @@ export class RunCommand {
       process.exit(1);
     }
     const playbooks = Utilities.findFilesWithKeyword(
-      "playbook",
+      'playbook',
       Utilities.YAML_FILE_TYPE,
       workingFolder
     );
-    console.log("Select which inventory to use:");
+    console.log('Select which inventory to use:');
     const inventoryFiles = Utilities.findFilesWithKeyword(
-      "inventory",
+      'inventory',
       Utilities.YAML_FILE_TYPE,
       workingFolder
     );
@@ -46,7 +46,7 @@ export class RunCommand {
 
     const playbookFilePath = await PlaybookUtilities.selectPlaybook(playbooks);
     if (!playbookFilePath) {
-      console.log("Playbook selection was interrupted.");
+      console.log('Playbook selection was interrupted.');
       process.exit(0);
     }
 
@@ -54,14 +54,14 @@ export class RunCommand {
       inventoryFiles
     );
     if (!inventoryFilePath) {
-      console.log("Inventory selection was interrupted.");
+      console.log('Inventory selection was interrupted.');
       process.exit(0);
     }
     const selectedHost = await InventoryUtilities.selectHosts(
       inventoryFilePath
     );
     if (!selectedHost) {
-      console.log("Host selection was interrupted.");
+      console.log('Host selection was interrupted.');
       process.exit(0);
     }
 
@@ -72,10 +72,10 @@ export class RunCommand {
     try {
       execSync(
         `ansible-playbook -i ${inventoryFilePath} --limit ${selectedHost} ${playbookFilePath} --ask-pass`,
-        { stdio: "inherit" }
+        { stdio: 'inherit' }
       );
     } catch (error) {
-      console.error("Error running playbook:", error.message);
+      console.error('Error running playbook:', error.message);
     }
   }
 }

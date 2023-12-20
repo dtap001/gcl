@@ -1,7 +1,7 @@
-import fs from "fs";
-import os from "os";
-import path from "path";
-import yaml from "js-yaml";
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
+import yaml from 'js-yaml';
 
 class GCLConfig {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,10 +24,10 @@ class GCLConfig {
 }
 
 class Configuration {
-  private static configFolderPath = path.join(os.homedir(), ".gcl");
+  private static configFolderPath = path.join(os.homedir(), '.gcl');
   private static configFilePath = path.join(
     Configuration.configFolderPath,
-    "config.yaml"
+    'config.yaml'
   );
   // Add this method to the GCLConfigUtil class
 
@@ -74,10 +74,10 @@ class Configuration {
 
   public static getConfig(): GCLConfig {
     if (!fs.existsSync(this.configFilePath)) {
-      return new GCLConfig("", false, new Date(), []);
+      return new GCLConfig('', false, new Date(), []);
     }
 
-    const configContent = fs.readFileSync(this.configFilePath, "utf8");
+    const configContent = fs.readFileSync(this.configFilePath, 'utf8');
     const configData = yaml.load(configContent) as GCLConfig;
     return new GCLConfig(
       configData.defaultHost,

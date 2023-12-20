@@ -6,6 +6,7 @@ import { AddFolderCommand } from './commands/add-folder.command';
 import { Command } from 'commander';
 import { exit } from 'process';
 
+
 export class Wrapper {
   async run(args: string[]) {
     const program = new Command();
@@ -14,10 +15,10 @@ export class Wrapper {
     await InstallUtilities.checkForUpdates();
 
     await InstallUtilities.checkAnsibleInstallation();
-    await InstallUtilities.checkSSHPassIntallation().catch((err) => {
-      console.error(`Failed to continue. Please fix ${err.message}`);
-      exit();
-    });
+    // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
+    //   console.error(`Failed to continue. Please fix ${err.message}`);
+    //   exit();
+    // });
 
     program
       .command('version')

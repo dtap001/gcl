@@ -53,10 +53,10 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "example:build:development"
+          "buildTarget": "@godcli/example:build:development"
         },
         "production": {
-          "buildTarget": "example:build:production"
+          "buildTarget": "@godcli/example:build:production"
         }
       }
     },

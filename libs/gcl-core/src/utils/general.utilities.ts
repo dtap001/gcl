@@ -1,12 +1,12 @@
-import fs from "fs";
-import path from "path";
-import * as yaml from "js-yaml";
+import fs from 'fs';
+import path from 'path';
+import * as yaml from 'js-yaml';
 
 export class Utilities {
-  static readonly YAML_FILE_TYPE = "yaml";
+  static readonly YAML_FILE_TYPE = 'yaml';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static readYamlFile(path: string): any {
-    const content = fs.readFileSync(path, "utf8");
+    const content = fs.readFileSync(path, 'utf8');
     return yaml.load(content);
   }
 
@@ -33,8 +33,8 @@ export class Utilities {
       const stat = fs.lstatSync(filePath);
       if (
         stat.isDirectory() &&
-        !(filePath === "node_modules") &&
-        !(filePath === ".git")
+        !(filePath === 'node_modules') &&
+        !(filePath === '.git')
       ) {
         result.push(
           ...Utilities.findFilesWithKeyword(keyword, fileType, filePath)

@@ -1,16 +1,16 @@
-import fs from "fs";
-import path from "path";
-import { UserInteractor } from "./user-interactor.utility";
+import fs from 'fs';
+import path from 'path';
+import { UserInteractor } from './user-interactor.utility';
 
 export class PlaybookUtilities {
   static async selectPlaybook(
     playbooks: string[]
   ): Promise<string | undefined> {
     const playbooksWithDescriptions = playbooks.map((file: string) => {
-      const content = fs.readFileSync(file, "utf8");
+      const content = fs.readFileSync(file, 'utf8');
       const description =
         content.match(/#\s*description:\s*(.+)\s*/i)?.[1] ||
-        "No description provided";
+        'No description provided';
       return `${file}: ${description}`;
     });
 

@@ -1,14 +1,14 @@
-import { execSync } from "child_process";
-import { Configuration } from "../config/config";
-import { UserInteractor } from "./user-interactor.utility";
+import { execSync } from 'child_process';
+import { Configuration } from '../config/config';
+import { UserInteractor } from './user-interactor.utility';
 
 export class InstallUtilities {
   protected static checkPipInstallation(): boolean {
     try {
-      execSync("pip --version", { stdio: "pipe" });
-      console.log("Pip is installed.");
+      execSync('pip --version', { stdio: 'pipe' });
+      console.log('Pip is installed.');
     } catch (error) {
-      console.error("Pip is not installed.");
+      console.error('Pip is not installed.');
       return false;
     }
     return true;
@@ -16,19 +16,19 @@ export class InstallUtilities {
 
   protected static installPipIfNotInstalled() {
     if (!this.checkPipInstallation()) {
-      console.log("Trying to install pip..");
+      console.log('Trying to install pip..');
       try {
-        execSync("sudo apt-get install python3-pip", { stdio: "inherit" });
-        console.log("Pip installed successfully.");
+        execSync('sudo apt-get install python3-pip', { stdio: 'inherit' });
+        console.log('Pip installed successfully.');
       } catch (installError) {
-        console.error("Failed to install pip. Please install it manually.");
+        console.error('Failed to install pip. Please install it manually.');
         process.exit(1);
       }
     }
   }
 
   static async checkSSHPassIntallation(): Promise<void> {
-    const stdout = execSync("sshpass -V", { encoding: 'utf-8' });
+    const stdout = execSync('sshpass -V', { encoding: 'utf-8' });
     if (!stdout.includes('Shachar Shemesh')) {
       throw new Error(`Missing tool sshpass please install it!`);
     }
@@ -40,31 +40,31 @@ export class InstallUtilities {
     }
     InstallUtilities.installPipIfNotInstalled();
     try {
-      execSync("ansible --version", { stdio: "pipe" });
-      console.log("Ansible is installed.");
+      execSync('ansible --version', { stdio: 'pipe' });
+      console.log('Ansible is installed.');
       Configuration.setCheckedAnsibleInstall(true);
     } catch (error) {
-      console.error("Ansible is not installed.");
+      console.error('Ansible is not installed.');
 
       const answer = UserInteractor.prompt(
-        "Do you want to install Ansible? (y/n): ",
+        'Do you want to install Ansible? (y/n): ',
         (input: string) => {
-          return input === "y" || input === "n";
+          return input === 'y' || input === 'n';
         }
       );
-      if (answer.toLowerCase() === "y") {
+      if (answer.toLowerCase() === 'y') {
         try {
-          console.log("Installing Ansible...");
-          execSync("pip install ansible", { stdio: "inherit" });
-          console.log("Ansible installed successfully.");
+          console.log('Installing Ansible...');
+          execSync('pip install ansible', { stdio: 'inherit' });
+          console.log('Ansible installed successfully.');
         } catch (installError) {
           console.error(
-            "Failed to install Ansible. Please install it manually."
+            'Failed to install Ansible. Please install it manually.'
           );
           process.exit(1);
         }
       } else {
-        console.log("Please install Ansible and try again.");
+        console.log('Please install Ansible and try again.');
         process.exit(1);
       }
     }
@@ -77,11 +77,11 @@ export class InstallUtilities {
       (now.getTime() - lastUpdateCheck.getTime()) / (1000 * 60 * 60);
 
     if (hoursSinceLastCheck >= 24) {
-      console.log("Checking for updates...");
+      console.log('Checking for updates...');
 
       Configuration.setLastUpdateCheck(now);
       try {
-        const stdout = execSync("npm update -g @godcli/gcl", { encoding: 'utf-8' });
+        const stdout = execSync('npm update -g @godcli/gcl', { encoding: 'utf-8' });
         console.log(`Successfully updated my-cli-tool: ${stdout}`);
       } catch (error) {
         console.error(`Error updating my-cli-tool: ${error.message}`);

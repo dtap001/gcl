@@ -1,4 +1,4 @@
-import { Utilities } from "./general.utilities";
+import { Utilities } from './general.utilities';
 import { UserInteractor } from './user-interactor.utility';
 
 export class InventoryUtilities {
@@ -16,13 +16,13 @@ export class InventoryUtilities {
     const groups = inventoryData.all?.children
       ? Object.keys(inventoryData.all.children)
       : [];
-    groups.push("Create new group");
+    groups.push('Create new group');
 
     const selectedGroup = await UserInteractor.selectFromList('Select inventory group:', groups);
 
     let groupName = selectedGroup;
-    if (groupName === "Create new group") {
-      groupName = UserInteractor.prompt("Enter the new group name: ", () => true);
+    if (groupName === 'Create new group') {
+      groupName = UserInteractor.prompt('Enter the new group name: ', () => true);
     }
 
     return groupName;
@@ -59,14 +59,14 @@ export class InventoryUtilities {
     if (result.includes(':')) {
       return result.split(':')[1];
     } else {
-      const warning = `You selected a host group which means your playbook will be run on ALL childrends of that group: 
+      const warning = `You selected a host group which means your playbook will be run on ALL childrends of that group:
 ${hostsWithGroup.map(item => item + '\n')}
 Do you want this? (y/n)`;
 
       const answer = UserInteractor.prompt(
         warning,
         (input: string) => {
-          return input === "y" || input === "n";
+          return input === 'y' || input === 'n';
         }
       );
       if (answer.toLowerCase() !== 'y') {

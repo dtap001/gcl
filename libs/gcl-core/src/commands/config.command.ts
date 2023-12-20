@@ -1,5 +1,5 @@
-import { UserInteractor } from "../utils/user-interactor.utility";
-import { Configuration } from "../config/config";
+import { UserInteractor } from '../utils/user-interactor.utility';
+import { Configuration } from '../config/config';
 
 export class ConfigCommand {
   async run(editMode: boolean) {
