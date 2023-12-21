@@ -1,6 +1,8 @@
 {
   "name": "@godcli/example",
-  "version": "0.0.2",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This is an example app of the godcli",
   "bin": {
     "example": "./main.js"
   },
@@ -11,5 +13,10 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
