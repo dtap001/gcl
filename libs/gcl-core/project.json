@@ -28,7 +28,8 @@
     "release": {
       "executor": "nx-release:build-update-publish",
       "options": {
-        "libName": "@godcli/core"
+        "libName": "@godcli/core",
+        "verbose": true
       }
     },
     "build": {

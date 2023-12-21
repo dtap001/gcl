@@ -3,4 +3,4 @@ export * from './config';
 export * from './utils';
 export * from './wrapper';
 
-console.log("running import gcl core")
+console.log("running import gcl corex")
