@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/dtap001/gcl/compare/v1.2.2...v1.2.3) (2023-12-21)
+
+
+### Bug Fixes
+
+* removed non used pipelines ([985319b](https://github.com/dtap001/gcl/commit/985319bcc1fe4a648b629a07d754544abe6be468))
+
 ## [1.2.2](https://github.com/dtap001/gcl/compare/v1.2.1...v1.2.2) (2023-12-21)
 
 
