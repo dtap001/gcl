@@ -10,9 +10,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "release": {
-    "branches": [
-      "main"
-    ]
-  }
+  "type": "module"
 }

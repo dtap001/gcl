@@ -31,13 +31,6 @@
         }
       }
     },
-    "release": {
-      "executor": "nx-release:build-update-publish",
-      "options": {
-        "libName": "@godcli/core",
-        "verbose": true
-      }
-    },
     "semantic-release": {
       "executor": "@theunderscorer/nx-semantic-release:semantic-release",
       "options": {
