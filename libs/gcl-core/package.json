@@ -1,6 +1,6 @@
 {
   "name": "@godcli/core",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "type": "module",
   "description": "This package helps you to interactively select and run ansible playbooks on your inventory of hosts.",
   "repository": {
