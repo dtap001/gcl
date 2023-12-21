@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/dtap001/gcl/compare/v1.1.2...v1.1.3) (2023-12-21)
+
+
+### Bug Fixes
+
+* no more webpack ([85a3817](https://github.com/dtap001/gcl/commit/85a38175e5b704b03e6787f1d193a88a08611032))
+
 ## [1.1.2](https://github.com/dtap001/gcl/compare/v1.1.1...v1.1.2) (2023-12-20)
 
 
