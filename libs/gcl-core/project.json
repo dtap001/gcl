@@ -31,7 +31,7 @@
         "libName": "@godcli/core"
       }
     },
-    "build_old": {
+    "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -41,7 +41,7 @@
         "assets": ["libs/gcl-core/*.md"]
       }
     },
-    "build": {
+    "build_webpack": {
       "executor": "@nx/webpack:webpack",
       "verbose": true,
       "defaultConfiguration": "production",
