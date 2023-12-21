@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/dtap001/gcl/compare/v1.2.1...v1.2.2) (2023-12-21)
+
+
+### Bug Fixes
+
+* verbose release ([c12c618](https://github.com/dtap001/gcl/commit/c12c61868d568e52cf3f3000a29919ecc4e481e7))
+
 ## [1.2.1](https://github.com/dtap001/gcl/compare/v1.2.0...v1.2.1) (2023-12-21)
 
 
