@@ -6,16 +6,22 @@
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
         "outputPath": "dist/apps/example",
-        "format": ["cjs"],
+        "format": [
+          "cjs"
+        ],
         "bundle": true,
         "main": "apps/example/src/main.ts",
         "tsConfig": "apps/example/tsconfig.app.json",
-        "assets": ["apps/example/assets/**"],
+        "assets": [
+          "apps/example/assets/**"
+        ],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
@@ -56,14 +62,20 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/example/**/*.ts"]
+        "lintFilePatterns": [
+          "apps/example/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/example/jest.config.ts",
         "passWithNoTests": true
@@ -75,11 +87,19 @@
         }
       }
     },
-
     "release": {
       "executor": "nx-release:build-update-publish",
       "options": {
         "libName": "@godcli/example"
+      }
+    },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "github": true,
+        "changelog": true,
+        "npm": true,
+        "tagFormat": "@godcli/example-v${VERSION}"
       }
     }
   },

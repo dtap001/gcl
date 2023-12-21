@@ -6,14 +6,20 @@
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["libs/gcl-core/**/*.ts"]
+        "lintFilePatterns": [
+          "libs/gcl-core/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/gcl-core/jest.config.ts",
         "passWithNoTests": true
@@ -32,15 +38,28 @@
         "verbose": true
       }
     },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "github": true,
+        "changelog": true,
+        "npm": true,
+        "tagFormat": "@godcli/core-v${VERSION}"
+      }
+    },
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/libs/gcl-core",
         "main": "libs/gcl-core/src/index.ts",
         "packageJson": "libs/gcl-core/package.json",
         "tsConfig": "libs/gcl-core/tsconfig.lib.json",
-        "assets": ["libs/gcl-core/*.md"]
+        "assets": [
+          "libs/gcl-core/*.md"
+        ]
       }
     },
     "build_webpack": {
@@ -55,7 +74,7 @@
         "main": "libs/gcl-core/src/index.ts",
         "tsConfig": "libs/gcl-core/tsconfig.spec.json",
         "isolatedConfig": true,
-        "generatePackageJson":true
+        "generatePackageJson": true
       },
       "configurations": {
         "production": {
