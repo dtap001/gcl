@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/dtap001/gcl/compare/v1.1.4...v1.1.5) (2023-12-21)
+
+
+### Bug Fixes
+
+* es2020 ([1c47e8b](https://github.com/dtap001/gcl/commit/1c47e8be0482f6900b88246f306a353adf61bb69))
+
 ## [1.1.4](https://github.com/dtap001/gcl/compare/v1.1.3...v1.1.4) (2023-12-21)
 
 
