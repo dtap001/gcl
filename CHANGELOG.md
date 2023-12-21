@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/dtap001/gcl/compare/v1.1.8...v1.1.9) (2023-12-21)
+
+
+### Bug Fixes
+
+* **example:** test relase ([0dc2fee](https://github.com/dtap001/gcl/commit/0dc2feea669d5e96787885aa98c0a7e2aaf1fa3e))
+
 ## [1.1.8](https://github.com/dtap001/gcl/compare/v1.1.7...v1.1.8) (2023-12-21)
 
 
