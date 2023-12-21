@@ -2,7 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "ES2022",
+    "module": "es2022",
+    "target": "es2022",
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "typeRoots": ["../../node_modules/@types","typings"]
