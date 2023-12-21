@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/dtap001/gcl/compare/v1.1.3...v1.1.4) (2023-12-21)
+
+
+### Bug Fixes
+
+* type to module ([d8f474e](https://github.com/dtap001/gcl/commit/d8f474e88e96c1d9464054d42077d4b184d8ba66))
+
 ## [1.1.3](https://github.com/dtap001/gcl/compare/v1.1.2...v1.1.3) (2023-12-21)
 
 
