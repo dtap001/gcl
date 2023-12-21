@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/dtap001/gcl/compare/v1.1.7...v1.1.8) (2023-12-21)
+
+
+### Bug Fixes
+
+* updated core and example too ([3f35ac9](https://github.com/dtap001/gcl/commit/3f35ac9cc14f20c15384f9cb770425db12de346e))
+
 ## [1.1.7](https://github.com/dtap001/gcl/compare/v1.1.6...v1.1.7) (2023-12-21)
 
 
