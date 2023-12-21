@@ -37,6 +37,7 @@
       "options": {
         "outputPath": "dist/libs/gcl-core",
         "main": "libs/gcl-core/src/index.ts",
+        "packageJson": "libs/gcl-core/package.json",
         "tsConfig": "libs/gcl-core/tsconfig.lib.json",
         "assets": ["libs/gcl-core/*.md"]
       }
