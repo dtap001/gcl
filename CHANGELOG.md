@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/dtap001/gcl/compare/v1.1.10...v1.2.0) (2023-12-21)
+
+
+### Features
+
+* added indexes for core ([b5b0cdf](https://github.com/dtap001/gcl/commit/b5b0cdf7128170362c85106381b4f3aa577b15fc))
+
 ## [1.1.10](https://github.com/dtap001/gcl/compare/v1.1.9...v1.1.10) (2023-12-21)
 
 
