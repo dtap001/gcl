@@ -1,6 +1,6 @@
 {
   "name": "gcl-workspace",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "license": "MIT",
   "scripts": {
     "build.example": "npx nx run @godcli/example:build"
