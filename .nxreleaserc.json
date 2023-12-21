@@ -2,7 +2,7 @@
   "ci": false,
   "changelog": true,
   "npm": true,
-  "github": false,
+  "github": true,
   "repositoryUrl": "https://github.com/dtap001/gcl",
   "branches": ["main", "feat/add-monorepo-support"]
 }
