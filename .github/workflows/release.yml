@@ -9,6 +9,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use node.js
         uses: actions/setup-node@v3
@@ -20,14 +22,9 @@ jobs:
         run: |
           git config user.name "gcl[bot]"
           git config user.email "bot@gcl.com"
-          git config --global init.defaultBranch master
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Build affected projects
-        shell: bash
-        run: npx nx affected --base=last-release --target=build
 
       - name: Version affected projects
         shell: bash
@@ -39,7 +36,9 @@ jobs:
 
       - name: Tag last-release
         shell: bash
-        run: git tag -f last-release
+        run: |
+            git tag -f last-release
+            git push origin last-release --force
 
       - name: Push changes
         uses: ad-m/github-push-action@master
