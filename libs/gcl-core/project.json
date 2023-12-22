@@ -25,12 +25,6 @@
         }
       }
     },
-    "semantic-release": {
-      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
-      "options": {
-        "tagFormat": "@godcli/core-v${VERSION}"
-      }
-    },
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
@@ -73,11 +67,24 @@
       "options": {
         "preset": "conventionalcommits",
         "baseBranch": "HEAD:main",
-        "tagPrefix": "gcl-core_",
+        "tagPrefix": "@gcl/core-",
         "push": true,
         "trackDeps": true,
-        "commitMessageFormat": "chore({projectName}): release version {version} [skip ci]"
-
+        "commitMessageFormat": "chore({projectName}): release version {version} [skip ci]",
+        "postTargets": ["npm", "github"]
+      },
+      "github": {
+        "executor": "@jscutlery/semver:github",
+        "options": {
+          "tag": "{tag}",
+          "notes": "{notes}"
+        }
+      },
+      "npm": {
+        "executor": "ngx-deploy-npm:deploy",
+        "options": {
+          "access": "public"
+        }
       }
     }
   },
