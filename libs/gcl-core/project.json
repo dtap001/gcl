@@ -72,19 +72,19 @@
         "trackDeps": true,
         "commitMessageFormat": "chore({projectName}): release version {version} [skip ci]",
         "postTargets": ["npm", "github"]
-      },
-      "github": {
-        "executor": "@jscutlery/semver:github",
-        "options": {
-          "tag": "{tag}",
-          "notes": "{notes}"
-        }
-      },
-      "npm": {
-        "executor": "ngx-deploy-npm:deploy",
-        "options": {
-          "access": "public"
-        }
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "{tag}",
+        "notes": "{notes}"
+      }
+    },
+    "npm": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
       }
     }
   },
