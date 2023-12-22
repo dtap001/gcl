@@ -1,38 +1,54 @@
-name: "RELEASE ➕+"
+name: release
+
 on:
-  push:
-    branches:
-      - main
+  - workflow_dispatch
 
 jobs:
   release:
     runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/master'
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
         with:
-          node-version: '16.13.2'
+          persist-credentials: false
+          fetch-depth: 0
 
-      - name: Configure Git
+      - name: Use node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup git
         run: |
-          git config --global user.name "GitHub Bot"
-          git config --global user.email "gituser@example.com"
-
-      - name: Set Git remote URL
-        run: git remote set-url origin https://semantic:${{ secrets.GITHUB_TOKEN }}@github.com/dtap001/gcl.git
+          git config user.name "gcl[bot]"
+          git config user.email "bot@gcl.com"
+          git config --global init.defaultBranch master
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Versioning and Tagging
-        run: |
-          npx nx affected --target=version --base=last-release --parallel=1
-          git tag -f last-release
-          git push origin last-release --force
+      - name: Build affected projects
+        shell: bash
+        run: nx affected --base=last-release --target=build
+
+      - name: Version affected projects
+        shell: bash
+        run: nx affected --base=last-release --target=version
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Tag last-release
+        shell: bash
+        run: git tag -f last-release
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          force: true
+          tags: true
