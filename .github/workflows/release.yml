@@ -30,11 +30,11 @@ jobs:
 
       - name: Build affected projects
         shell: bash
-        run: nx affected --base=last-release --target=build
+        run: npx nx affected --base=last-release --target=build
 
       - name: Version affected projects
         shell: bash
-        run: nx affected --base=last-release --target=version
+        run: npx nx affected --base=last-release --target=version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
