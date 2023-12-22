@@ -3,6 +3,6 @@
   "changelog": true,
   "npm": true,
   "github": true,
-  "repositoryUrl": "https://github.com/dtap001/gcl",
+  "repositoryUrl": "git@github.com:dtap001/gcl.git",
   "branches": ["main", "feat/add-monorepo-support"]
 }

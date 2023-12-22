@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "es2021",
+    "target": "ESNext",
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -9,10 +9,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
+    "allowJs": true,
     "declaration": true,
+    "allowSyntheticDefaultImports": true,
     "typeRoots": ["../../node_modules/@types","typings"]
   },
-  "moduleResolution": "node18",
   "exclude": ["jest.config.ts", "srcx/**/*.spec.ts", "srcx/**/*.test.ts"],
   "include": ["typings/**/*", "src/**/*.ts"]
 }

@@ -42,6 +42,8 @@
       "outputs": [
         "{options.outputPath}"
       ],
+      "updateBuildableProjectDepsInPackageJson": true,
+      "buildableProjectDepsInPackageJsonType": "dependencies",
       "options": {
         "outputPath": "dist/libs/gcl-core",
         "main": "libs/gcl-core/src/index.ts",
