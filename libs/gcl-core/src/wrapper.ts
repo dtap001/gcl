@@ -18,7 +18,6 @@ export class Wrapper {
     // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
     //   console.error(`Failed to continue. Please fix ${err.message}`);
     //   exit();
-    //
     // });
 
     program
