@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.5](https://github.com/dtap001/gcl/compare/@gcl/example-0.1.4...@gcl/example-0.1.5) (2023-12-22)
+
+
+### Bug Fixes
+
+* exapected only example bump ([78209bd](https://github.com/dtap001/gcl/commit/78209bd4988cba6670a5d5250e95838a4e04890e))
+
 ## [0.1.4](https://github.com/dtap001/gcl/compare/@gcl/example-0.1.3...@gcl/example-0.1.4) (2023-12-22)
 
 ### Dependency Updates
