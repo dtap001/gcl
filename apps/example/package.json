@@ -1,6 +1,6 @@
 {
   "name": "@godcli/example",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "This is an example app of the godcli",
   "bin": {
