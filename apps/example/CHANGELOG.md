@@ -23,3 +23,25 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 * type in package json ([9a9fc9c](https://github.com/dtap001/gcl/commit/9a9fc9c2f30a57ad1bea7718556af749db8a4126))
 * updated core and example too ([3f35ac9](https://github.com/dtap001/gcl/commit/3f35ac9cc14f20c15384f9cb770425db12de346e))
 * wrong import and " to ' ([94cf3b7](https://github.com/dtap001/gcl/commit/94cf3b76e6163e6d477bce234c7159fe23ca1139))
+
+## 0.1.0 (2023-12-22)
+
+
+### Features
+
+* **core,example:** initial commit working build ([ae3be26](https://github.com/dtap001/gcl/commit/ae3be262ac6d423e33dddd8812f97d55bb3603ee))
+
+
+### Bug Fixes
+
+* [@gcl](https://github.com/gcl) to [@godcli](https://github.com/godcli) ([4949448](https://github.com/dtap001/gcl/commit/4949448b502387ee9e1973b7e68a0bfab3976e94))
+* example ([d9b428a](https://github.com/dtap001/gcl/commit/d9b428a446d07156d6b0f8e8a1fe10732a4399f3))
+* **example:** test relase ([0dc2fee](https://github.com/dtap001/gcl/commit/0dc2feea669d5e96787885aa98c0a7e2aaf1fa3e))
+* lets try a differnt lib ([508ead1](https://github.com/dtap001/gcl/commit/508ead11c9416b6d317127b1f8c9ae7fcf7c739e))
+* other publish tool ([06f1953](https://github.com/dtap001/gcl/commit/06f1953a9b73fc883a778a65ab4ba123fd6e5057))
+* public lib ([5dd991c](https://github.com/dtap001/gcl/commit/5dd991ced284b249ba682dd306f77ec49164f0e3))
+* release ([d80fb05](https://github.com/dtap001/gcl/commit/d80fb05fb5fe97166e06995b53d9d7993dfe74ac))
+* release example ([c66d612](https://github.com/dtap001/gcl/commit/c66d612394f9b6262fcfe1acc1f01e8d11592589))
+* type in package json ([9a9fc9c](https://github.com/dtap001/gcl/commit/9a9fc9c2f30a57ad1bea7718556af749db8a4126))
+* updated core and example too ([3f35ac9](https://github.com/dtap001/gcl/commit/3f35ac9cc14f20c15384f9cb770425db12de346e))
+* wrong import and " to ' ([94cf3b7](https://github.com/dtap001/gcl/commit/94cf3b76e6163e6d477bce234c7159fe23ca1139))
