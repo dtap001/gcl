@@ -2,6 +2,11 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.7](https://github.com/dtap001/gcl/compare/@gcl/example-0.1.6...@gcl/example-0.1.7) (2023-12-22)
+
+### Dependency Updates
+
+* `@godcli/core` updated to version `0.1.6`
 ## [0.1.6](https://github.com/dtap001/gcl/compare/@gcl/example-0.1.5...@gcl/example-0.1.6) (2023-12-22)
 
 ### Dependency Updates
