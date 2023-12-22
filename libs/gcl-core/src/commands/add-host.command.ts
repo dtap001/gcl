@@ -3,6 +3,7 @@ import { InventoryUtilities } from '../utils/inventory.utilities';
 import path from 'path';
 import fs from 'fs';
 import { UserInteractor } from '../utils/user-interactor.utility';
+import { group } from 'console';
 
 export class AddHostCommand {
   async run() {
@@ -51,6 +52,10 @@ export class AddHostCommand {
     }
 
     const groupName = await InventoryUtilities.selectGroup(inventoryPath);
+    if(!groupName) {
+      throw new Error(`Missing groupname from inventory ${inventoryPath}`);
+    }
+
     const hostName = UserInteractor.prompt(
       'Enter the host name: ',
       (input: string) => {

@@ -5,14 +5,14 @@
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
     "declaration": true,
     "typeRoots": ["../../node_modules/@types","typings"]
   },
-  "moduleResolution": "node16",
+  "moduleResolution": "node18",
   "exclude": ["jest.config.ts", "srcx/**/*.spec.ts", "srcx/**/*.test.ts"],
   "include": ["typings/**/*", "src/**/*.ts"]
 }

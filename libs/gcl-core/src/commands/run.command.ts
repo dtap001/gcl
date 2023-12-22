@@ -75,7 +75,9 @@ export class RunCommand {
         { stdio: 'inherit' }
       );
     } catch (error) {
-      console.error('Error running playbook:', error.message);
+      if(error instanceof Error){
+        console.error('Error running playbook:', error.message);
+      }
     }
   }
 }

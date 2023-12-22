@@ -24,7 +24,7 @@ export class Wrapper {
       .command('version')
       .description('Get running version')
       .action(async () => {
-        console.log(process.env.npm_package_version || '0.0.0');
+        console.log(process.env['npm_package_version'] || '0.0.0');
       });
     program
       .command('run')
