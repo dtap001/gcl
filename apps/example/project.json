@@ -47,7 +47,8 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "@godcli/example:build:development"
+          "buildTarget": "@godcli/example:build:development",
+          "watch": true
         },
         "production": {
           "buildTarget": "@godcli/example:build:production"

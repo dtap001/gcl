@@ -8,44 +8,46 @@ import { exit } from 'process';
 
 
 export class Wrapper {
-  async run(args: string[]) {
-    const program = new Command();
-    program.showSuggestionAfterError(true);
+  async run(args: string[], command?: Command): Promise<void>{
+    if(!command){
+      command = new Command();
+    }
+    command.showSuggestionAfterError(true);
 
     await InstallUtilities.checkForUpdates();
-
     await InstallUtilities.checkAnsibleInstallation();
     // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
     //   console.error(`Failed to continue. Please fix ${err.message}`);
     //   exit();
     // });
 
-    program
+
+    command
       .command('version')
       .description('Get running version')
       .action(async () => {
         console.log(process.env['npm_package_version'] || '0.0.0');
       });
-    program
+    command
       .command('run')
       .description('Run Ansible playbook with interactive selection')
       .action(async () => {
         new RunCommand().run();
       });
 
-    program
+    command
       .command('addHost')
       .description('Add a new host to an inventory file')
       .action(async () => {
         new AddHostCommand().run();
       });
-    program
+    command
       .command('addFolder')
       .description('Add current folder as working folder for gcl')
       .action(async () => {
         new AddFolderCommand().run();
       });
-    program
+    command
       .command('config')
       .description(
         'by default it will print the current config. Use --edit to change it'
@@ -55,6 +57,6 @@ export class Wrapper {
         const configCommand = new ConfigCommand();
         await configCommand.run(options.edit);
       });
-    await program.parseAsync(args);
+    await command.parseAsync(args);
   }
 }
