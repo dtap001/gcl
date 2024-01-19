@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/dtap001/gcl/compare/@gcl/core-0.1.6...@gcl/core-0.2.0) (2024-01-19)
+
+
+### Features
+
+* interactive command selector ([98a5153](https://github.com/dtap001/gcl/commit/98a5153ff9532c91b254d048bf4b6afc118144d6))
+
 ## [0.1.6](https://github.com/dtap001/gcl/compare/@gcl/core-0.1.5...@gcl/core-0.1.6) (2024-01-18)
 
 
