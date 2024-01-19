@@ -4,7 +4,7 @@ import { Command } from 'commander';
 async function run() {
   const command = new Command();
   command
-    .command('my custom comand')
+    .command('myCustomComand')
     .description('My command description')
     .action(async () => {
       console.log(process.env['npm_package_version'] || '0.0.0');

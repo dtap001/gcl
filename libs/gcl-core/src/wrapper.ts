@@ -5,23 +5,13 @@ import { ConfigCommand } from './commands/config.command';
 import { AddFolderCommand } from './commands/add-folder.command';
 import { Command } from 'commander';
 import { exit } from 'process';
-
+import { UserInteractor } from './utils';
 
 export class Wrapper {
-  async run(args: string[], command?: Command): Promise<void>{
-    if(!command){
+  async run(args: string[], command?: Command): Promise<void> {
+    if (!command) {
       command = new Command();
     }
-    command.showSuggestionAfterError(true);
-
-    await InstallUtilities.checkForUpdates();
-    await InstallUtilities.checkAnsibleInstallation();
-    // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
-    //   console.error(`Failed to continue. Please fix ${err.message}`);
-    //   exit();
-    // });
-
-
     command
       .command('version')
       .description('Get running version')
@@ -57,6 +47,33 @@ export class Wrapper {
         const configCommand = new ConfigCommand();
         await configCommand.run(options.edit);
       });
+
+    if (args.length === 2) {
+      await this.handleWhenNoCommandSelected(args, command);
+    }
+
+    command.showSuggestionAfterError(true);
+
+    await InstallUtilities.checkForUpdates();
+    await InstallUtilities.checkAnsibleInstallation();
+    // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
+    //   console.error(`Failed to continue. Please fix ${err.message}`);
+    //   exit();
+    // });
+
     await command.parseAsync(args);
+  }
+
+  private async handleWhenNoCommandSelected(args: string[], command: Command) {
+    const separator = ` => `;
+    const commands = command.commands.map(
+      (cmd) => `${cmd.name()}${separator}${cmd.description()}}`
+    );
+    const result = await UserInteractor.selectFromList(
+      `Which command would you like to run? `,
+      commands
+    );
+    const commandRealName = result.split(separator)[0];
+    args.push(commandRealName);
   }
 }
