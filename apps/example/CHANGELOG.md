@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/dtap001/gcl/compare/@gcl/example-0.1.8...@gcl/example-0.2.0) (2024-01-19)
+
+### Dependency Updates
+
+* `@godcli/core` updated to version `0.1.8`
+
+### Features
+
+* interactive command selector ([98a5153](https://github.com/dtap001/gcl/commit/98a5153ff9532c91b254d048bf4b6afc118144d6))
+
 ## [0.1.8](https://github.com/dtap001/gcl/compare/@gcl/example-0.1.7...@gcl/example-0.1.8) (2024-01-18)
 
 ### Dependency Updates
