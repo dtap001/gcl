@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { UserInteractor } from './user-interactor.utility';
+import { UserInteractor } from '../../../utils/user-interactor.utility';
 
 export class PlaybookUtilities {
   static async selectPlaybook(

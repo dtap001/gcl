@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
-import { Configuration } from '../config/config.utility';
-import { UserInteractor } from './user-interactor.utility';
+import { ConfigService } from '../../../config/config.service';
+import { UserInteractor } from '../../../utils/user-interactor.utility';
 
 export class InstallUtilities {
   protected static checkPipInstallation(): boolean {
@@ -34,15 +34,15 @@ export class InstallUtilities {
     }
   }
 
-  static async checkAnsibleInstallation(): Promise<void> {
-    if (Configuration.getConfig()['ansible.checkedAnsibleIntall']) {
+  static async checkAnsibleInstallation(configService: ConfigService): Promise<void> {
+    if (configService.getConfig()['ansible.checkedAnsibleIntall']) {
       return;
     }
     InstallUtilities.installPipIfNotInstalled();
     try {
       execSync('ansible --version', { stdio: 'pipe' });
       console.log('Ansible is installed.');
-      Configuration.setConfigValue('ansible.checkedAnsibleIntall', true);
+      configService.setConfigValue('ansible.checkedAnsibleIntall', true);
     } catch (error) {
       console.error('Ansible is not installed.');
 
@@ -70,10 +70,10 @@ export class InstallUtilities {
     }
   }
 
-  static async checkForUpdates() {
+  static async checkForUpdates(configService: ConfigService) {
     const now = new Date();
     const lastUpdateCheck = new Date(
-      Configuration.getConfig()['core.lastUpdateCheck']
+      configService.getConfig()['core.lastUpdateCheck']
     );
     const hoursSinceLastCheck =
       (now.getTime() - lastUpdateCheck.getTime()) / (1000 * 60 * 60);
@@ -81,7 +81,7 @@ export class InstallUtilities {
     if (hoursSinceLastCheck >= 24) {
       console.log('Checking for updates...');
 
-      Configuration.setConfigValue('core.lastUpdateCheck', now);
+      configService.setConfigValue('core.lastUpdateCheck', now);
       try {
         const stdout = execSync('npm update -g @godcli/gcl', {
           encoding: 'utf-8',

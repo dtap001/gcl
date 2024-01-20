@@ -1,14 +1,21 @@
-import { Utilities } from '../utils/general.utilities';
-import { PlaybookUtilities } from '../utils/playbook.utilities';
-import { InventoryUtilities } from '../utils/inventory.utilities';
-import { Configuration } from '../config/config.utility';
+import { Utilities } from '../../utils/general.utilities';
+import { PlaybookUtilities } from './utils/playbook.utilities';
+import { InventoryUtilities } from './utils/inventory.utilities';
+import { ConfigService } from '../../config/config.service';
 import { execSync } from 'child_process';
 import path from 'path';
+import { inject, injectable } from 'inversify';
+import TYPES from '../../inversifiy.types';
 
-export class RunCommand {
+@injectable()
+export class AnsibleRunCommand {
+  constructor(
+    @inject(TYPES.ConfigService) private configService: ConfigService
+  ) {}
+
   async run() {
     const workingFolder = await PlaybookUtilities.getPlaybookWorkFolder(
-      Configuration.getConfig()['ansible.workingFolders']
+      this.configService.getConfig()['ansible.workingFolders'] as string[] // TODO: fix this
     );
     if (!workingFolder || workingFolder.length === 0) {
       console.error(`No working folder is selected!`);
@@ -75,7 +82,7 @@ export class RunCommand {
         { stdio: 'inherit' }
       );
     } catch (error) {
-      if(error instanceof Error){
+      if (error instanceof Error) {
         console.error('Error running playbook:', error.message);
       }
     }

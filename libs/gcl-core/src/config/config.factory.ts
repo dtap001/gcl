@@ -5,7 +5,6 @@ export class ConfigFactory {
       'ansible.defaultHost': '',
       'ansible.checkedAnsibleIntall': false,
       'ansible.workingFolders': [],
-      plugins: [],
     };
   }
 }
