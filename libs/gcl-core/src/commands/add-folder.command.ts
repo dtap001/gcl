@@ -1,10 +1,10 @@
 import path from 'path';
-import { Configuration } from '../config/config';
+import { Configuration } from '../config/config.utility';
 import { UserInteractor } from '../utils/user-interactor.utility';
 export class AddFolderCommand {
   async run() {
-    const config = Configuration.getConfig();
-    console.log(`Currently added folders: ${config.workingFolders.join('\n')}`);
+    const workingFolders = Configuration.getConfig()['ansible.workingFolders'];
+    console.log(`Currently added folders: ${workingFolders.join('\n')}`);
     const approved = UserInteractor.prompt(
       `Do you really want to add this folder ${path.resolve('.')} ?`,
       (input: string) => {
@@ -12,7 +12,8 @@ export class AddFolderCommand {
       }
     );
     if (approved === 'y') {
-      Configuration.addWorkingFolder(path.resolve('.'));
+      workingFolders.push(path.resolve('.'));
+      Configuration.setConfigValue('ansible.workingFolders', workingFolders);
     }
   }
 }

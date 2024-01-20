@@ -1,5 +1,5 @@
 import { UserInteractor } from '../utils/user-interactor.utility';
-import { Configuration } from '../config/config';
+import { Configuration, GCLConfig } from '../config/config.utility';
 
 export class ConfigCommand {
   async run(editMode: boolean) {
@@ -9,8 +9,8 @@ export class ConfigCommand {
       console.log(JSON.stringify(config), undefined, 0);
       return;
     }
-    const configKeys = Object.keys(config);
-    const result = await UserInteractor.selectFromList('Select the configkey to change', configKeys);
+    const configKeys = Object.keys(config) as (keyof GCLConfig)[];
+    const result = await UserInteractor.selectFromList('Select the configkey to change', configKeys) as keyof GCLConfig;
     console.log(`ANSWER: ${JSON.stringify(result)}`);
 
 

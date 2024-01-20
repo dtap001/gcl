@@ -1,14 +1,14 @@
 import { Utilities } from '../utils/general.utilities';
 import { PlaybookUtilities } from '../utils/playbook.utilities';
 import { InventoryUtilities } from '../utils/inventory.utilities';
-import { Configuration } from '../config/config';
+import { Configuration } from '../config/config.utility';
 import { execSync } from 'child_process';
 import path from 'path';
 
 export class RunCommand {
   async run() {
     const workingFolder = await PlaybookUtilities.getPlaybookWorkFolder(
-      Configuration.getConfig().workingFolders
+      Configuration.getConfig()['ansible.workingFolders']
     );
     if (!workingFolder || workingFolder.length === 0) {
       console.error(`No working folder is selected!`);
