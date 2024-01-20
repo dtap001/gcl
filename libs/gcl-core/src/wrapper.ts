@@ -1,13 +1,13 @@
 import 'reflect-metadata';
-import { InstallUtilities } from './commands/ansible/utils/install.utilities';
-import { AnsibleRunCommand } from './commands/ansible/run.command';
-import { AddHostCommand } from './commands/ansible/add-host.command';
-import { ConfigCommand } from './commands/core/config.command';
-import { AddFolderCommand } from './commands/ansible/add-folder.command';
+import { InstallUtilities } from './plugins/ansible/utils/install.utilities';
+import { AnsibleRunCommand } from './plugins/ansible/commands/run.command';
+import { AddHostCommand } from './plugins/ansible/commands/add-host.command';
+import { ConfigCommand } from './plugins/core/commands/config.command';
+import { AddFolderCommand } from './plugins/ansible/commands/add-folder.command';
 import { Command } from 'commander';
 import { UserInteractor } from './utils';
-import { GCLPlugin } from './commands/plugin/plugin.interface';
-import { PluginService } from './commands/plugin/plugin.service';
+import { GCLCommand } from './plugin/plugin.interface';
+import { PluginService } from './plugin/plugin.service';
 import { ConfigService } from './config';
 import { injectable } from 'inversify';
 import TYPES from './inversifiy.types';
@@ -18,7 +18,7 @@ export class Wrapper {
   private pluginService = container.get<PluginService>(TYPES.PluginService);
   private configService = container.get<ConfigService>(TYPES.ConfigService);
 
-  async run(args: string[], plugins: GCLPlugin[]): Promise<void> {
+  async run(args: string[], plugins: GCLCommand[]): Promise<void> {
     const command = new Command();
 
     this.addCorePlugins(command);

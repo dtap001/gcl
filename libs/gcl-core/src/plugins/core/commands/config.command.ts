@@ -1,7 +1,7 @@
-import { UserInteractor } from '../../utils/user-interactor.utility';
-import { ConfigService } from '../../config/config.service';
+import { UserInteractor } from '../../../utils/user-interactor.utility';
+import { ConfigService } from '../../../config/config.service';
 import { injectable, inject } from 'inversify';
-import TYPES from '../../inversifiy.types';
+import TYPES from '../../../inversifiy.types';
 
 @injectable()
 export class ConfigCommand {
@@ -20,7 +20,6 @@ export class ConfigCommand {
       'Select the configkey to change',
       this.configService.getKeys()
     );
-    console.log(`ANSWER: ${JSON.stringify(result)}`);
 
     const newValue = UserInteractor.prompt(
       `Enter value for: ${config[result]}`,

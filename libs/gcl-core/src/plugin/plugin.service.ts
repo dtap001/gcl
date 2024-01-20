@@ -1,19 +1,19 @@
 import { Command } from 'commander';
-import { GCLPlugin } from './plugin.interface';
-import { ConfigService } from '../../config';
+import { GCLCommand } from './plugin.interface';
+import { ConfigService } from '../config';
 import { inject, injectable } from 'inversify';
-import TYPES from '../../inversifiy.types';
-import { Logger } from '../../utils/logging';
+import TYPES from '../inversifiy.types';
+import { Logger } from '../utils/logging';
 
 @injectable()
 export class PluginService {
-  plugins: GCLPlugin[] = [];
+  plugins: GCLCommand[] = [];
   constructor(
     @inject(TYPES.ConfigService) private configService: ConfigService
   ) {}
 
-  public registerPlugin(plugin: GCLPlugin, command: Command) {
-    Logger.info(`Registering plugin ${plugin.command}`);
+  public registerPlugin(plugin: GCLCommand, command: Command) {
+    Logger.debug(`Registering plugin ${plugin.command}`);
     this.plugins.push(plugin);
 
     const commandAtBuild = command

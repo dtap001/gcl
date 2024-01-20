@@ -1,13 +1,13 @@
 import { Container } from 'inversify';
 import { ConfigService } from './config/config.service';
 import TYPES from './inversifiy.types';
-import { PluginService } from './commands/plugin/plugin.service';
+import { PluginService } from './plugin/plugin.service';
 import {
   AddFolderCommand,
   AddHostCommand,
   AnsibleRunCommand,
   ConfigCommand,
-} from './commands';
+} from './plugins';
 
 const container = new Container();
 container.bind<ConfigService>(TYPES.ConfigService).to(ConfigService).inSingletonScope();

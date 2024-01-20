@@ -14,15 +14,15 @@ export class ConfigService {
   private configFilePath = path.join(this.configFolderPath, 'config.yaml');
 
   constructor() {
-    Logger.info(`ConfigService constructor`);
+    Logger.debug(`ConfigService constructor`);
   }
 
   public registerKnownConfig(config: GCLPluginConfig) {
-    Logger.info(`Registering config ${config.name}`);
+    Logger.debug(`Registering config ${config.name}`);
     if (!this.knownConfigs.find((c) => c.name === config.name)) {
       this.knownConfigs.push(config);
     } else {
-      Logger.info(`Config ${config.name} already registered`);
+      Logger.debug(`Config ${config.name} already registered`);
     }
   }
 
@@ -40,7 +40,7 @@ export class ConfigService {
   }
 
   public getKeys() {
-    Logger.info(`Getting keys` + JSON.stringify(this.knownConfigs));
+    Logger.debug(`Getting keys` + JSON.stringify(this.knownConfigs));
     return this.knownConfigs.map((config) => config.name);
   }
 

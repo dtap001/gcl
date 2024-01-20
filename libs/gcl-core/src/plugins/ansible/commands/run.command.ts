@@ -1,11 +1,11 @@
-import { Utilities } from '../../utils/general.utilities';
-import { PlaybookUtilities } from './utils/playbook.utilities';
-import { InventoryUtilities } from './utils/inventory.utilities';
-import { ConfigService } from '../../config/config.service';
+import { Utilities } from '../../../utils/general.utilities';
+import { PlaybookUtilities } from '../utils/playbook.utilities';
+import { InventoryUtilities } from '../utils/inventory.utilities';
+import { ConfigService } from '../../../config/config.service';
 import { execSync } from 'child_process';
 import path from 'path';
 import { inject, injectable } from 'inversify';
-import TYPES from '../../inversifiy.types';
+import TYPES from '../../../inversifiy.types';
 
 @injectable()
 export class AnsibleRunCommand {
