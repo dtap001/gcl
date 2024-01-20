@@ -1,11 +1,16 @@
 import { GCLPluginConfig } from '../config/config.interface';
 
+export interface GCLPlugin {
+  pluginName: string;
+  commands: GCLCommand[];
+  config?: GCLPluginConfig[];
+}
+
 export interface GCLCommand {
   command: string;
   description: string;
   action(options: OptionsForGCLCommandAction): Promise<void>;
   options?: GCLCommandOption[];
-  config?: GCLPluginConfig[];
 }
 
 type OptionsForGCLCommandAction = {

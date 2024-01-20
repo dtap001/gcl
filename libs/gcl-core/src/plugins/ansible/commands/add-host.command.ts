@@ -3,12 +3,19 @@ import { InventoryUtilities } from '../utils/inventory.utilities';
 import path from 'path';
 import fs from 'fs';
 import { UserInteractor } from '../../../utils/user-interactor.utility';
-import { group } from 'console';
 import { injectable } from 'inversify';
+import { GCLCommandOption, GCLCommand } from '../../../plugin/plugin.interface';
 
 @injectable()
-export class AddHostCommand {
-  async run() {
+export class AddHostCommand implements GCLCommand {
+  command = 'addHost';
+  description = 'Add host to inventory';
+  options?: GCLCommandOption[] | undefined;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async action(options: {
+    [x: string]: string | number | boolean;
+  }): Promise<void> {
     const inventoryFiles = Utilities.findFilesWithKeyword(
       'inventory',
       Utilities.YAML_FILE_TYPE,
@@ -54,7 +61,7 @@ export class AddHostCommand {
     }
 
     const groupName = await InventoryUtilities.selectGroup(inventoryPath);
-    if(!groupName) {
+    if (!groupName) {
       throw new Error(`Missing groupname from inventory ${inventoryPath}`);
     }
 

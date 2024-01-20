@@ -2,16 +2,32 @@ import { UserInteractor } from '../../../utils/user-interactor.utility';
 import { ConfigService } from '../../../config/config.service';
 import { injectable, inject } from 'inversify';
 import TYPES from '../../../inversifiy.types';
+import { GCLCommandOption, GCLCommand } from '../../../plugin/plugin.interface';
+import { Logger } from '../../../utils/logging';
 
 @injectable()
-export class ConfigCommand {
+export class ConfigCommand implements GCLCommand {
+  command = 'config';
+  description =
+    'by default it will print the current config. Use --edit to change it';
+  options?: GCLCommandOption[] = [
+    {
+      name: 'edit',
+      description: 'edit config',
+      default: false,
+    },
+  ];
+
   constructor(
     @inject(TYPES.ConfigService) private configService: ConfigService
   ) {}
 
-  async run(editMode: boolean) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async action(options: {
+    [x: string]: string | number | boolean;
+  }): Promise<void> {
     const config = this.configService.getConfig();
-    if (!editMode) {
+    if (!options['edit']) {
       console.log(this.configService.getConfigPath());
       console.log(JSON.stringify(config), undefined, 0);
       return;
@@ -21,8 +37,11 @@ export class ConfigCommand {
       this.configService.getKeys()
     );
 
+    Logger.info(
+      `Editing config key: ${result}\nCurrent value: '${config[result]}'.`
+    );
     const newValue = UserInteractor.prompt(
-      `Enter value for: ${config[result]}`,
+      `Enter new value:`,
       () => true
     );
 

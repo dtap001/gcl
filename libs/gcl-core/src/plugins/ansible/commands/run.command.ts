@@ -6,14 +6,21 @@ import { execSync } from 'child_process';
 import path from 'path';
 import { inject, injectable } from 'inversify';
 import TYPES from '../../../inversifiy.types';
+import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
 
 @injectable()
-export class AnsibleRunCommand {
+export class AnsibleRunCommand implements GCLCommand {
   constructor(
     @inject(TYPES.ConfigService) private configService: ConfigService
   ) {}
 
-  async run() {
+  options?: GCLCommandOption[] | undefined;
+  command = 'run';
+  description = 'Run playbook with interactive selection';
+
+  async action(options: {
+    [x: string]: string | number | boolean;
+  }): Promise<void> {
     const workingFolder = await PlaybookUtilities.getPlaybookWorkFolder(
       this.configService.getConfig()['ansible.workingFolders'] as string[] // TODO: fix this
     );
