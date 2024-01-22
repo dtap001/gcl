@@ -2,10 +2,9 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import yaml from 'js-yaml';
-import { GCLConfig, GCLPluginConfig } from './config.interface';
-import { ConfigFactory } from './config.factory';
 import { injectable } from 'inversify';
 import { Logger } from '../utils';
+import { GCLPluginConfig } from './config.interface';
 
 @injectable()
 export class ConfigService {
@@ -13,25 +12,17 @@ export class ConfigService {
   private configFolderPath = path.join(os.homedir(), '.gcl');
   private configFilePath = path.join(this.configFolderPath, 'config.yaml');
 
-  constructor() {
-    Logger.debug(`ConfigService constructor`);
-  }
-
   public registerKnownConfig(config: GCLPluginConfig) {
-    Logger.debug(`Registering config ${config.name}`);
-    if (!this.knownConfigs.find((c) => c.name === config.name)) {
-      this.knownConfigs.push(config);
-    } else {
-      Logger.debug(`Config ${config.name} already registered`);
-    }
+    Logger.debug(`Registering config ${JSON.stringify(config)}`);
+    this.knownConfigs.push(config);
   }
 
-  public setConfigValue<K extends keyof GCLConfig>(
-    key: K,
-    value: GCLConfig[K]
-  ): void {
+  public setConfigValue<ConfigType extends GCLPluginConfig>(
+    key: keyof ConfigType,
+    value: ConfigType[keyof ConfigType]
+  ) {
     const config = this.getConfig();
-    config[key] = value;
+    config[key as string] = value;
     this.saveConfig(config);
   }
 
@@ -41,20 +32,26 @@ export class ConfigService {
 
   public getKeys() {
     Logger.debug(`Getting keys` + JSON.stringify(this.knownConfigs));
-    return this.knownConfigs.map((config) => config.name);
+    const result: string[] = [];
+    this.knownConfigs.forEach((config) => {
+      Object.keys(config).forEach((key) => {
+        result.push(key);
+      });
+    });
+    return result;
   }
 
-  public getConfig(): GCLConfig {
+  public getConfig<T extends GCLPluginConfig>(): T {
     if (!fs.existsSync(this.configFilePath)) {
-      return ConfigFactory.createDefaultConfig();
+      return {} as T;
     }
 
     const configContent = fs.readFileSync(this.configFilePath, 'utf8');
-    const configData = yaml.load(configContent) as GCLConfig;
+    const configData = yaml.load(configContent) as T;
     return configData;
   }
 
-  private saveConfig(config: GCLConfig): void {
+  private saveConfig(config: GCLPluginConfig): void {
     if (!fs.existsSync(this.configFolderPath)) {
       fs.mkdirSync(this.configFolderPath);
     }

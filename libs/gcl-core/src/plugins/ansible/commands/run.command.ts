@@ -7,6 +7,7 @@ import path from 'path';
 import { inject, injectable } from 'inversify';
 import TYPES from '../../../inversifiy.types';
 import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
+import { AnsibleConfig } from '../ansible.config';
 
 @injectable()
 export class AnsibleRunCommand implements GCLCommand {
@@ -22,7 +23,7 @@ export class AnsibleRunCommand implements GCLCommand {
     [x: string]: string | number | boolean;
   }): Promise<void> {
     const workingFolder = await PlaybookUtilities.getPlaybookWorkFolder(
-      this.configService.getConfig()['ansible.workingFolders'] as string[] // TODO: fix this
+      this.configService.getConfig<AnsibleConfig>()['ansible.workingFolders']
     );
     if (!workingFolder || workingFolder.length === 0) {
       console.error(`No working folder is selected!`);

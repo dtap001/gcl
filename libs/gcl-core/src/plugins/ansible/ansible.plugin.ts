@@ -11,12 +11,9 @@ export class AnsiblePlugin implements GCLPlugin {
     container.get<AddHostCommand>(TYPES.AddHostCommand),
     container.get<AddFolderCommand>(TYPES.AddFolderCommand),
   ];
-  config = [
-    {
-      name: `${this.pluginName}.workingFolders`,
-      type: typeof ``,
-    },
-    { name: `${this.pluginName}.defaultHost`, type: typeof `` },
-    { name: `${this.pluginName}.checkedAnsibleIntall`, type: typeof Boolean },
-  ];
+  config = {
+    'ansible.workingFolders': '',
+    'ansible.defaultHost': '',
+  'ansible.checkedAnsibleIntall': false,
+  }
 }

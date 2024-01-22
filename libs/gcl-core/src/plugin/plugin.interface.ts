@@ -1,9 +1,9 @@
-import { GCLPluginConfig } from '../config/config.interface';
+import { GCLPluginConfig } from "../config/config.interface";
 
 export interface GCLPlugin {
   pluginName: string;
   commands: GCLCommand[];
-  config?: GCLPluginConfig[];
+  config?: GCLPluginConfig;
 }
 
 export interface GCLCommand {

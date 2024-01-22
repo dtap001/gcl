@@ -34,9 +34,8 @@ export class PluginService {
         });
       }
     });
-
-    plugin.config?.forEach((config) => {
-      this.configService.registerKnownConfig(config);
-    });
+    if (plugin.config) {
+      this.configService.registerKnownConfig(plugin.config);
+    }
   }
 }

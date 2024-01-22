@@ -4,6 +4,7 @@ import { UserInteractor } from '../../../utils/user-interactor.utility';
 import { inject, injectable } from 'inversify';
 import TYPES from '../../../inversifiy.types';
 import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
+import { AnsibleConfig } from '../ansible.config';
 
 @injectable()
 export class AddFolderCommand implements GCLCommand {
@@ -17,7 +18,7 @@ export class AddFolderCommand implements GCLCommand {
   async action(options: {
     [x: string]: string | number | boolean;
   }): Promise<void> {
-    const workingFolders = this.configService.getConfig()[
+    const workingFolders = this.configService.getConfig<AnsibleConfig>()[
       'ansible.workingFolders'
     ] as string[]; // TODO: fix this
     console.log(`Currently added folders: ${workingFolders.join('\n')}`);
@@ -29,7 +30,7 @@ export class AddFolderCommand implements GCLCommand {
     );
     if (approved === 'y') {
       workingFolders.push(path.resolve('.'));
-      this.configService.setConfigValue(
+      this.configService.setConfigValue<AnsibleConfig>(
         'ansible.workingFolders',
         workingFolders
       );

@@ -1,6 +1,8 @@
 import { execSync } from 'child_process';
 import { ConfigService } from '../../../config/config.service';
 import { UserInteractor } from '../../../utils/user-interactor.utility';
+import { CorePluginConfig } from '../../core/core.config';
+import { AnsibleConfig } from '../ansible.config';
 
 export class InstallUtilities {
   protected static checkPipInstallation(): boolean {
@@ -34,15 +36,22 @@ export class InstallUtilities {
     }
   }
 
-  static async checkAnsibleInstallation(configService: ConfigService): Promise<void> {
-    if (configService.getConfig()['ansible.checkedAnsibleIntall']) {
+  static async checkAnsibleInstallation(
+    configService: ConfigService
+  ): Promise<void> {
+    if (
+      configService.getConfig<AnsibleConfig>()['ansible.checkedAnsibleIntall']
+    ) {
       return;
     }
     InstallUtilities.installPipIfNotInstalled();
     try {
       execSync('ansible --version', { stdio: 'pipe' });
       console.log('Ansible is installed.');
-      configService.setConfigValue('ansible.checkedAnsibleIntall', true);
+      configService.setConfigValue<AnsibleConfig>(
+        'ansible.checkedAnsibleIntall',
+        true
+      );
     } catch (error) {
       console.error('Ansible is not installed.');
 
@@ -73,15 +82,17 @@ export class InstallUtilities {
   static async checkForUpdates(configService: ConfigService) {
     const now = new Date();
     const lastUpdateCheck = new Date(
-      configService.getConfig()['core.lastUpdateCheck']
+      configService.getConfig<CorePluginConfig>()['core.lastUpdateCheck']
     );
     const hoursSinceLastCheck =
       (now.getTime() - lastUpdateCheck.getTime()) / (1000 * 60 * 60);
 
     if (hoursSinceLastCheck >= 24) {
       console.log('Checking for updates...');
-
-      configService.setConfigValue('core.lastUpdateCheck', now);
+      configService.setConfigValue<CorePluginConfig>(
+        'core.lastUpdateCheck',
+        now
+      );
       try {
         const stdout = execSync('npm update -g @godcli/gcl', {
           encoding: 'utf-8',
