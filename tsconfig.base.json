@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "types": ["node", "reflect-metadata"],
+    "types": ["node"],
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,

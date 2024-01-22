@@ -2,6 +2,23 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.0](https://github.com/dtap001/gcl/compare/@gcl/example-0.2.0...@gcl/example-0.3.0) (2024-01-22)
+
+### Dependency Updates
+
+* `@godcli/core` updated to version `0.2.0`
+
+### Features
+
+* finished plugin structure ([1fd2367](https://github.com/dtap001/gcl/commit/1fd2367ddab457461bb429eea5bfd3a00ed15ee6))
+* renaming prepare for plugin structure ([dce9dac](https://github.com/dtap001/gcl/commit/dce9dac6573bdfc89b940d802d1b47f12082c226))
+* using inversify dependeny injection ([676e05e](https://github.com/dtap001/gcl/commit/676e05e0b56f5ec979b51669d6d4558e847ae5af))
+
+
+### Bug Fixes
+
+* checking config type ([6506e3b](https://github.com/dtap001/gcl/commit/6506e3bf5787beed54549fbd186b1d238a2928a3))
+
 ## [0.2.0](https://github.com/dtap001/gcl/compare/@gcl/example-0.1.8...@gcl/example-0.2.0) (2024-01-19)
 
 ### Dependency Updates
