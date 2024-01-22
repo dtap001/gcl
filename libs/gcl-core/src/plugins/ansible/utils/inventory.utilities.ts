@@ -1,5 +1,5 @@
-import { Utilities } from './general.utilities';
-import { UserInteractor } from './user-interactor.utility';
+import { Utilities } from '../../../utils/general.utilities';
+import { UserInteractor } from '../../../utils/user-interactor.utility';
 
 export class InventoryUtilities {
   static async selectInventory(

@@ -1,52 +1,29 @@
-import { InstallUtilities } from './utils/install.utilities';
-import { RunCommand } from './commands/run.command';
-import { AddHostCommand } from './commands/add-host.command';
-import { ConfigCommand } from './commands/config.command';
-import { AddFolderCommand } from './commands/add-folder.command';
+import { InstallUtilities } from './plugins/ansible/utils/install.utilities';
 import { Command } from 'commander';
-import { exit } from 'process';
 import { UserInteractor } from './utils';
+import { GCLPlugin } from './plugin/plugin.interface';
+import { PluginService } from './plugin/plugin.service';
+import { ConfigService } from './config';
+import { injectable } from 'inversify';
+import TYPES from './inversifiy.types';
+import container from './inversify.config';
+import { AnsiblePlugin } from './plugins/ansible/ansible.plugin';
+import { CorePlugin } from './plugins/core/core.plugin';
 
+@injectable()
 export class Wrapper {
-  async run(args: string[], command?: Command): Promise<void> {
-    if (!command) {
-      command = new Command();
-    }
-    command
-      .command('version')
-      .description('Get running version')
-      .action(async () => {
-        console.log(process.env['npm_package_version'] || '0.0.0');
-      });
-    command
-      .command('run')
-      .description('Run Ansible playbook with interactive selection')
-      .action(async () => {
-        new RunCommand().run();
-      });
+  private pluginService = container.get<PluginService>(TYPES.PluginService);
+  private configService = container.get<ConfigService>(TYPES.ConfigService);
 
-    command
-      .command('addHost')
-      .description('Add a new host to an inventory file')
-      .action(async () => {
-        new AddHostCommand().run();
-      });
-    command
-      .command('addFolder')
-      .description('Add current folder as working folder for gcl')
-      .action(async () => {
-        new AddFolderCommand().run();
-      });
-    command
-      .command('config')
-      .description(
-        'by default it will print the current config. Use --edit to change it'
-      )
-      .option('--edit', 'edit config')
-      .action(async (options) => {
-        const configCommand = new ConfigCommand();
-        await configCommand.run(options.edit);
-      });
+  async run(args: string[], plugins: GCLPlugin[]): Promise<void> {
+    const command = new Command();
+
+    this.pluginService.registerPlugin(new CorePlugin(), command);
+    this.pluginService.registerPlugin(new AnsiblePlugin(), command);
+
+    plugins.forEach((plugin) => {
+      this.pluginService.registerPlugin(plugin, command);
+    });
 
     if (args.length === 2) {
       await this.handleWhenNoCommandSelected(args, command);
@@ -54,8 +31,8 @@ export class Wrapper {
 
     command.showSuggestionAfterError(true);
 
-    await InstallUtilities.checkForUpdates();
-    await InstallUtilities.checkAnsibleInstallation();
+    await InstallUtilities.checkForUpdates(this.configService);
+    await InstallUtilities.checkAnsibleInstallation(this.configService);
     // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
     //   console.error(`Failed to continue. Please fix ${err.message}`);
     //   exit();

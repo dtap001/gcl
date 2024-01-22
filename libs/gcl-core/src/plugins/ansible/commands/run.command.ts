@@ -1,14 +1,29 @@
-import { Utilities } from '../utils/general.utilities';
+import { Utilities } from '../../../utils/general.utilities';
 import { PlaybookUtilities } from '../utils/playbook.utilities';
 import { InventoryUtilities } from '../utils/inventory.utilities';
-import { Configuration } from '../config/config';
+import { ConfigService } from '../../../config/config.service';
 import { execSync } from 'child_process';
 import path from 'path';
+import { inject, injectable } from 'inversify';
+import TYPES from '../../../inversifiy.types';
+import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
+import { AnsibleConfig } from '../ansible.config';
 
-export class RunCommand {
-  async run() {
+@injectable()
+export class AnsibleRunCommand implements GCLCommand {
+  constructor(
+    @inject(TYPES.ConfigService) private configService: ConfigService
+  ) {}
+
+  options?: GCLCommandOption[] | undefined;
+  command = 'run';
+  description = 'Run playbook with interactive selection';
+
+  async action(options: {
+    [x: string]: string | number | boolean;
+  }): Promise<void> {
     const workingFolder = await PlaybookUtilities.getPlaybookWorkFolder(
-      Configuration.getConfig().workingFolders
+      this.configService.getConfig<AnsibleConfig>()['ansible.workingFolders']
     );
     if (!workingFolder || workingFolder.length === 0) {
       console.error(`No working folder is selected!`);
@@ -75,7 +90,7 @@ export class RunCommand {
         { stdio: 'inherit' }
       );
     } catch (error) {
-      if(error instanceof Error){
+      if (error instanceof Error) {
         console.error('Error running playbook:', error.message);
       }
     }

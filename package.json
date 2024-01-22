@@ -12,8 +12,10 @@
     "child_process": "^1.0.2",
     "commander": "^10.0.0",
     "fzf": "^0.5.2",
+    "inversify": "^6.0.2",
     "js-yaml": "^4.1.0",
     "prompt-sync": "^4.2.0",
+    "reflect-metadata": "^0.2.1",
     "semver": "^7.3.8",
     "tslib": "^2.3.0",
     "validator": "^13.9.0"
@@ -37,6 +39,7 @@
     "@types/node": "~18.7.1",
     "@types/prompt-sync": "^4.2.3",
     "@types/prompts": "^2.4.9",
+    "@types/reflect-metadata": "^0.1.0",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "conventional-changelog-conventionalcommits": "^7.0.2",
