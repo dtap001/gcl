@@ -2,6 +2,17 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.0](https://github.com/dtap001/gcl/compare/@gcl/core-0.3.0...@gcl/core-1.0.0) (2024-01-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* command name with plugin prefix
+
+### Features
+
+* command name with plugin prefix ([43ebf3d](https://github.com/dtap001/gcl/commit/43ebf3da1602756e2b6a3359a0e29c31d48c83b6))
+
 ## [0.3.0](https://github.com/dtap001/gcl/compare/@gcl/core-0.2.0...@gcl/core-0.3.0) (2024-01-22)
 
 
