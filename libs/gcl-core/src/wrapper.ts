@@ -47,7 +47,7 @@ export class Wrapper {
       (cmd) => `${cmd.name()}${separator}${cmd.description()}}`
     );
     const result = await UserInteractor.selectFromList(
-      `Which command would you like to run? `,
+      `Which command would you like to run?`,
       commands
     );
     const commandRealName = result.split(separator)[0];

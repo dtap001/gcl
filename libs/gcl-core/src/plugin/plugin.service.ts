@@ -18,7 +18,7 @@ export class PluginService {
     plugin.commands.forEach((gclCommand: GCLCommand) => {
       Logger.debug(`Registering command ${gclCommand.command}`);
       const commandAtBuild = commanderCommand
-        .command(gclCommand.command)
+        .command(`${plugin.pluginName}:${gclCommand.command}`)
         .description(gclCommand.description)
         .action((option) => {
           gclCommand.action(option);
