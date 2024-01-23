@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.1.0](https://github.com/dtap001/gcl/compare/@gcl/core-1.0.0...@gcl/core-1.1.0) (2024-01-23)
+
+
+### Features
+
+* bumping major for core ([68db98d](https://github.com/dtap001/gcl/commit/68db98d2f0253207d68b2e9b4e1a2d2ea9d196cd))
+
 ## [1.0.0](https://github.com/dtap001/gcl/compare/@gcl/core-0.3.0...@gcl/core-1.0.0) (2024-01-23)
 
 
