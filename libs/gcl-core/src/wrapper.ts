@@ -46,6 +46,7 @@ export class Wrapper {
     const commands = command.commands.map(
       (cmd) => `${cmd.name()}${separator}${cmd.description()}}`
     );
+
     const result = await UserInteractor.selectFromList(
       `Which command would you like to run run?`,
       commands
