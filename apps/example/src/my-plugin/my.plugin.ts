@@ -6,6 +6,6 @@ export class MyPlugin implements GCLPlugin {
   pluginName = 'myPlugin';
   commands: GCLCommand[] = [new MyCommand()];
   config = {
-    'myPlugin.my-config-key': 'new-value',
+    'myPlugin.my-config-key': 'defaultvalue',
   } as MyPLuginConfig;
 }
