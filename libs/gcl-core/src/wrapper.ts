@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { InstallUtilities } from './plugins/ansible/utils/install.utilities';
 import { Command } from 'commander';
 import { UserInteractor } from './utils';
