@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.1](https://github.com/dtap001/gcl/compare/@gcl/core-2.0.0...@gcl/core-2.0.1) (2024-01-23)
+
+
+### Bug Fixes
+
+* reflect-metadata import move ([c0dce0e](https://github.com/dtap001/gcl/commit/c0dce0eb18a06fbd508d742d3770f596134c00ff))
+
 ## [2.0.0](https://github.com/dtap001/gcl/compare/@gcl/core-1.1.0...@gcl/core-2.0.0) (2024-01-23)
 
 
