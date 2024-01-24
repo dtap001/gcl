@@ -1,7 +1,7 @@
 import { UserInteractor } from '../../../utils/user-interactor.utility';
 import { ConfigService } from '../../../config/config.service';
 import { injectable, inject } from 'inversify';
-import TYPES from '../../../inversifiy.types';
+import { TYPES } from '../../../inversify.config';
 import { GCLCommandOption, GCLCommand } from '../../../plugin/plugin.interface';
 import { Logger } from '../../../utils/logging';
 

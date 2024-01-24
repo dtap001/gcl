@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { container, TYPES } from './inversify.config';
 import { InstallUtilities } from './plugins/ansible/utils/install.utilities';
 import { Command } from 'commander';
 import { UserInteractor } from './utils';
@@ -6,8 +7,6 @@ import { GCLPlugin } from './plugin/plugin.interface';
 import { PluginService } from './plugin/plugin.service';
 import { ConfigService } from './config';
 import { injectable } from 'inversify';
-import TYPES from './inversifiy.types';
-import container from './inversify.config';
 import { AnsiblePlugin } from './plugins/ansible/ansible.plugin';
 import { CorePlugin } from './plugins/core/core.plugin';
 

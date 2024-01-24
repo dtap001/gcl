@@ -2,9 +2,9 @@ import path from 'path';
 import { ConfigService } from '../../../config/config.service';
 import { UserInteractor } from '../../../utils/user-interactor.utility';
 import { inject, injectable } from 'inversify';
-import TYPES from '../../../inversifiy.types';
 import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
 import { AnsibleConfig } from '../ansible.config';
+import { TYPES } from '../../../inversify.config';
 
 @injectable()
 export class AddFolderCommand implements GCLCommand {

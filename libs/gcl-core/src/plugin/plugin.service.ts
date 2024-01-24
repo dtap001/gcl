@@ -2,8 +2,8 @@ import { Command } from 'commander';
 import { GCLCommand, GCLPlugin } from './plugin.interface';
 import { ConfigService } from '../config';
 import { inject, injectable } from 'inversify';
-import TYPES from '../inversifiy.types';
 import { Logger } from '../utils/logging';
+import { TYPES } from '../inversify.config';
 
 @injectable()
 export class PluginService {

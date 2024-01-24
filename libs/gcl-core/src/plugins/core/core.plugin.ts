@@ -1,5 +1,4 @@
-import TYPES from '../../inversifiy.types';
-import container from '../../inversify.config';
+import { TYPES, container } from '../../inversify.config';
 import { GCLPlugin } from '../../plugin/plugin.interface';
 import { ConfigCommand } from './commands/config.command';
 

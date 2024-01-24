@@ -1,5 +1,4 @@
-import TYPES from '../../inversifiy.types';
-import container from '../../inversify.config';
+import { container, TYPES } from '../../inversify.config';
 import { GCLPlugin } from '../../plugin/plugin.interface';
 import { AddFolderCommand } from './commands/add-folder.command';
 import { AddHostCommand } from './commands/add-host.command';
