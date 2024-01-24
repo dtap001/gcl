@@ -1,18 +1,26 @@
-import { container, TYPES } from '../../inversify.config';
 import { GCLPlugin } from '../../plugin/plugin.interface';
 import { AddFolderCommand } from './commands/add-folder.command';
 import { AddHostCommand } from './commands/add-host.command';
 import { AnsibleRunCommand } from './commands/run.command';
+import { DIConfig } from '../../inversify.core-config';
+import { Container } from 'inversify';
 export class AnsiblePlugin implements GCLPlugin {
   pluginName = `ansible`;
-  commands = [
-    container.get<AnsibleRunCommand>(TYPES.AnsibleRunCommand),
-    container.get<AddHostCommand>(TYPES.AddHostCommand),
-    container.get<AddFolderCommand>(TYPES.AddFolderCommand),
+  commands = () => [
+    /* DIConfig.container.get<AnsibleRunCommand>(DIConfig.TYPES.AnsibleRunCommand),
+    DIConfig.container.get<AddHostCommand>(DIConfig.TYPES.AddHostCommand),
+    DIConfig.container.get<AddFolderCommand>(DIConfig.TYPES.AddFolderCommand),*/
   ];
   config = {
     'ansible.workingFolders': '',
     'ansible.defaultHost': '',
-  'ansible.checkedAnsibleIntall': false,
-  }
+    'ansible.checkedAnsibleIntall': false,
+  };
+  di = {
+    types: {
+      ConfigCommand: Symbol('ConfigCommand'),
+    },
+    register: (container: Container) => {
+    },
+  };
 }

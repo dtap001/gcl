@@ -1,19 +1,27 @@
 import 'reflect-metadata';
-import { container, TYPES } from './inversify.config';
 import { InstallUtilities } from './plugins/ansible/utils/install.utilities';
 import { Command } from 'commander';
 import { UserInteractor } from './utils';
 import { GCLPlugin } from './plugin/plugin.interface';
 import { PluginService } from './plugin/plugin.service';
 import { ConfigService } from './config';
-import { injectable } from 'inversify';
 import { AnsiblePlugin } from './plugins/ansible/ansible.plugin';
 import { CorePlugin } from './plugins/core/core.plugin';
+import { DI } from './inversify.core-config';
+import { DITypes } from './inversify.core-types';
 
-@injectable()
 export class Wrapper {
-  private pluginService = container.get<PluginService>(TYPES.PluginService);
-  private configService = container.get<ConfigService>(TYPES.ConfigService);
+  constructor() {
+    console.log('Wrapper init started');
+    this.pluginService = DI.container.get<PluginService>(
+      DITypes.CORE_TYPES.PluginService
+    );
+    this.configService = DI.container.get<ConfigService>(
+      DITypes.CORE_TYPES.ConfigService
+    );
+  }
+  private pluginService: PluginService;
+  private configService: ConfigService;
 
   async run(args: string[], plugins: GCLPlugin[]): Promise<void> {
     const command = new Command();

@@ -1,9 +1,9 @@
-import { ConfigService, GCLCommand, TYPES } from '@godcli/core';
+import { ConfigService, DIConfig, DITypes, GCLCommand } from '@godcli/core';
 import { inject } from 'inversify';
 
 export class MyCommand implements GCLCommand {
   constructor(
-    @inject(TYPES.ConfigService) private configService: ConfigService
+    @inject(DITypes.CORE_TYPES.ConfigService) private configService: ConfigService
   ) {}
 
   command = 'myCommand';

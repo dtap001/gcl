@@ -2,8 +2,14 @@ import { GCLPluginConfig } from "../config/config.interface";
 
 export interface GCLPlugin {
   pluginName: string;
-  commands: GCLCommand[];
+  commands(): GCLCommand[];
   config?: GCLPluginConfig;
+  di: {
+    types: {
+      [key: string]: symbol;
+    };
+    register(container: any): void;
+  };
 }
 
 export interface GCLCommand {

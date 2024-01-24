@@ -5,14 +5,14 @@ import { ConfigService } from '../../../config/config.service';
 import { execSync } from 'child_process';
 import path from 'path';
 import { inject, injectable } from 'inversify';
-import { TYPES } from '../../../inversify.config';
 import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
 import { AnsibleConfig } from '../ansible.config';
+import { DITypes } from '../../../inversify.core-types';
 
 @injectable()
 export class AnsibleRunCommand implements GCLCommand {
   constructor(
-    @inject(TYPES.ConfigService) private configService: ConfigService
+    @inject(DITypes.CORE_TYPES.ConfigService) private configService: ConfigService
   ) {}
 
   options?: GCLCommandOption[] | undefined;

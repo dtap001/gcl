@@ -3,19 +3,21 @@ import { GCLCommand, GCLPlugin } from './plugin.interface';
 import { ConfigService } from '../config';
 import { inject, injectable } from 'inversify';
 import { Logger } from '../utils/logging';
-import { TYPES } from '../inversify.config';
+import { DI } from '../inversify.core-config';
+import { DITypes } from '../inversify.core-types';
 
 @injectable()
 export class PluginService {
   plugins: GCLPlugin[] = [];
   constructor(
-    @inject(TYPES.ConfigService) private configService: ConfigService
+    @inject(DITypes.CORE_TYPES.ConfigService) private configService: ConfigService
   ) {}
 
   public registerPlugin(plugin: GCLPlugin, commanderCommand: Command) {
     Logger.debug(`Registering plugin ${plugin.pluginName}`);
     this.plugins.push(plugin);
-    plugin.commands.forEach((gclCommand: GCLCommand) => {
+    plugin.di.register(DI.container);
+    plugin.commands().forEach((gclCommand: GCLCommand) => {
       Logger.debug(`Registering command ${gclCommand.command}`);
       const commandAtBuild = commanderCommand
         .command(`${plugin.pluginName}:${gclCommand.command}`)
