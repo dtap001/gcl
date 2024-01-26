@@ -2,6 +2,22 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.3](https://github.com/dtap001/gcl/compare/@gcl/example-2.0.2...@gcl/example-2.0.3) (2024-01-26)
+
+### Dependency Updates
+
+* `@godcli/wrapper` updated to version `2.0.2`
+* `@godcli/core` updated to version `2.0.2`
+* `@godcli/plugins/interfaces` updated to version `2.0.2`
+
+### Bug Fixes
+
+*  changes in di config ([fc31ecc](https://github.com/dtap001/gcl/commit/fc31eccd863d7de206d0c53dd3ae743ad7c5a770))
+* detaching types and register function ([27540f5](https://github.com/dtap001/gcl/commit/27540f53a79f11a47af81564a2d6b9066d188d72))
+* di plugin config started to work ([a99a5f9](https://github.com/dtap001/gcl/commit/a99a5f9ac8c5476cedd26bb218eb409bad0c7d2a))
+* moving to separate nx libraries ([8d0e6bd](https://github.com/dtap001/gcl/commit/8d0e6bdae08d7a8e58579001bb990607b5675508))
+* using new interface ([e7a0612](https://github.com/dtap001/gcl/commit/e7a061280081fb6581ffd0f9fd60186f7122ecdd))
+
 ## [2.0.2](https://github.com/dtap001/gcl/compare/@gcl/example-2.0.1...@gcl/example-2.0.2) (2024-01-23)
 
 ### Dependency Updates
