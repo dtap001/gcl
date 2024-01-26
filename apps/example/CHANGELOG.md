@@ -2,6 +2,11 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.4](https://github.com/dtap001/gcl/compare/@gcl/example-2.0.3...@gcl/example-2.0.4) (2024-01-26)
+
+### Dependency Updates
+
+* `@godcli/wrapper` updated to version `2.0.3`
 ## [2.0.3](https://github.com/dtap001/gcl/compare/@gcl/example-2.0.2...@gcl/example-2.0.3) (2024-01-26)
 
 ### Dependency Updates
