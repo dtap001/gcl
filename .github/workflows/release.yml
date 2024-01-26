@@ -28,7 +28,7 @@ jobs:
 
       - name: Version affected projects
         shell: bash
-        run: npx nx affected --base=last-release --target=version --parallel=1
+        run: npx nx affected --base=last-release --target=build --parallel=1
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

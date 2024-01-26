@@ -7,6 +7,8 @@
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
+      "updateBuildableProjectDepsInPackageJson": true,
+      "buildableProjectDepsInPackageJsonType": "dependencies",
       "options": {
         "outputPath": "dist/libs/wrapper",
         "tsConfig": "libs/wrapper/tsconfig.lib.json",
