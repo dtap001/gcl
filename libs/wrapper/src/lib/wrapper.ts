@@ -13,7 +13,6 @@ export class Wrapper {
   }
 
   private pluginService: PluginService;
-
   async run(args: string[], plugins: GCLPlugin[]): Promise<void> {
     const command = new Command();
 
