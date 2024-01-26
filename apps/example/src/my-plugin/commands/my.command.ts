@@ -1,10 +1,10 @@
 import {
   ConfigService,
-  GCLCommand,
   GCLDependencyCoreTypes,
 } from '@godcli/core';
 import { inject, injectable } from 'inversify';
 import { MyPLuginConfig } from '../my.config';
+import { GCLCommand } from '@godcli/plugins/interfaces';
 
 @injectable()
 export class MyCommand implements GCLCommand {

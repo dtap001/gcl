@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { Wrapper } from '@godcli/core';
+import { Wrapper } from '@godcli/wrapper';
 import { MyPlugin } from './my-plugin/my.plugin';
 
 async function run() {

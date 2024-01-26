@@ -1,7 +1,8 @@
-import { DI, GCLPlugin } from '@godcli/core';
 import { MyPLuginConfig } from './my.config';
 import { Container } from 'inversify';
 import { MyCommand } from './commands/my.command';
+import { DI } from '@godcli/core';
+import { GCLPlugin } from '@godcli/plugins/interfaces';
 
 export class MyPlugin implements GCLPlugin {
   pluginName = 'myPlugin';
