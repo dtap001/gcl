@@ -125,5 +125,5 @@
 ### Chores
 
 * ci fix ([29c8989](https://github.com/dtap001/gcl/commit/29c8989565db02be4eca8afc3bcd7e343379c251))
-* **release-@gcl/gcl-core:** 1.0.0 ([627d95f](https://github.com/dtap001/gcl/commit/627d95fddcb89375f37dbc30769ab4b7d7ea7e5f))
+* **release-@gcl/core:** 1.0.0 ([627d95f](https://github.com/dtap001/gcl/commit/627d95fddcb89375f37dbc30769ab4b7d7ea7e5f))
 * renamed pipeline ([f919870](https://github.com/dtap001/gcl/commit/f9198707840b2069b252c16ac4687a0d1e3435c6))

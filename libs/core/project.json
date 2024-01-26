@@ -1,0 +1,92 @@
+{
+  "name": "@godcli/core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/core/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/core/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "updateBuildableProjectDepsInPackageJson": true,
+      "buildableProjectDepsInPackageJsonType": "dependencies",
+      "options": {
+        "outputPath": "dist/libs/core",
+        "main": "libs/core/src/index.ts",
+        "packageJson": "libs/core/package.json",
+        "tsConfig": "libs/core/tsconfig.lib.json",
+        "assets": ["libs/core/*.md"]
+      }
+    },
+    "build_webpack": {
+      "executor": "@nx/webpack:webpack",
+      "verbose": true,
+      "defaultConfiguration": "production",
+      "options": {
+        "webpackConfig": "libs/core/webpack.config.js",
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/libs/core",
+        "main": "libs/core/src/index.ts",
+        "tsConfig": "libs/core/tsconfig.spec.json",
+        "isolatedConfig": true,
+        "generatePackageJson": true
+      },
+      "configurations": {
+        "production": {
+          "sourceMap": false,
+          "externalDependencies": "all",
+          "vendorChunk": true,
+          "webpackConfig": "libs/core/webpack.config.js",
+          "isolatedConfig": true
+        }
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits",
+        "baseBranch": "HEAD:main",
+        "tagPrefix": "@gcl/core-",
+        "push": true,
+        "trackDeps": true,
+        "commitMessageFormat": "chore({projectName}): release version {version} [skip ci]",
+        "postTargets": ["npm", "github"]
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "{tag}",
+        "notes": "{notes}"
+      }
+    },
+    "npm": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

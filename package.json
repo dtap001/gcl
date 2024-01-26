@@ -33,6 +33,8 @@
     "@nx/node": "17.0.3",
     "@nx/webpack": "^17.2.6",
     "@nx/workspace": "17.0.3",
+    "@swc-node/register": "~1.6.7",
+    "@swc/core": "~1.3.85",
     "@types/axios": "^0.14.0",
     "@types/jest": "^29.4.0",
     "@types/js-yaml": "^4.0.5",

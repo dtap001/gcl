@@ -16,7 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@godcli/core": ["libs/gcl-core/src/index.ts"]
+      "@godcli/core": ["libs/core/src/index.ts"],
+      "@godcli/plugins/ansible": ["libs/plugins/ansible/src/index.ts"],
+      "@godcli/plugins/core": ["libs/plugins/core/src/index.ts"],
+      "@godcli/plugins/interfaces": ["libs/plugins/interfaces/src/index.ts"],
+      "@godcli/wrapper": ["libs/wrapper/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

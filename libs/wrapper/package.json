@@ -1,0 +1,14 @@
+{
+  "name": "@godcli/wrapper",
+  "version": "2.0.1",
+  "description": "This package helps you to interactively select and run ansible playbooks on your inventory of hosts.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dtap001/gcl",
+    "directory": "libs/wrapper"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module"
+}

@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES6",
+    "moduleResolution": "Node10",
+    "useDefineForClassFields": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["../../../node_modules/@types","typings"]
+  },
+  "exclude": ["jest.config.ts", "srcx/**/*.spec.ts", "srcx/**/*.test.ts"],
+  "include": ["typings/**/*", "src/**/*.ts"]
+}
