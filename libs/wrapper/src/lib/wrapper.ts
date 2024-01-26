@@ -7,7 +7,6 @@ import { DI, PluginService, GCLDependencyCoreTypes, UserInteractor, Logger } fro
 
 export class Wrapper {
   constructor() {
-    console.log('Wrapper init started');
     this.pluginService = DI.container.get<PluginService>(
       GCLDependencyCoreTypes.VALUES.PluginService
     );
