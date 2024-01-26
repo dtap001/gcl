@@ -6,18 +6,18 @@ import { Container } from 'inversify';
 export class CorePlugin implements GCLPlugin {
   pluginName = 'core';
   commands = () => [
-    DI.container.get<ConfigCommand>(this.di.types.ConfigCommand),
+    DI.container.get<ConfigCommand>(this.dependencies.types.ConfigCommand),
   ];
   config = {
     'core.lastUpdateCheck': '',
   };
-  di = {
+  dependencies = {
     types: {
       ConfigCommand: Symbol('ConfigCommand'),
     },
     register: (container: Container) => {
       container
-        .bind<ConfigCommand>(this.di.types.ConfigCommand)
+        .bind<ConfigCommand>(this.dependencies.types.ConfigCommand)
         .to(ConfigCommand);
     },
   };

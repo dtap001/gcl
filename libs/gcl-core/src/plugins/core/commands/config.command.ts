@@ -3,7 +3,7 @@ import { ConfigService } from '../../../config/config.service';
 import { injectable, inject } from 'inversify';
 import { GCLCommandOption, GCLCommand } from '../../../plugin/plugin.interface';
 import { Logger } from '../../../utils/logging';
-import { DITypes } from '../../../inversify.core-types';
+import { GCLDependencyCoreTypes } from '../../../inversify.core-types';
 
 @injectable()
 export class ConfigCommand implements GCLCommand {
@@ -19,7 +19,7 @@ export class ConfigCommand implements GCLCommand {
   ];
 
   constructor(
-    @inject(DITypes.CORE_TYPES.ConfigService) private configService: ConfigService
+    @inject(GCLDependencyCoreTypes.VALUES.ConfigService) private configService: ConfigService
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

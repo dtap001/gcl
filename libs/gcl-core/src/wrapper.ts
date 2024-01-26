@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { InstallUtilities } from './plugins/ansible/utils/install.utilities';
+import { DI } from './inversify.core-config';
 import { Command } from 'commander';
 import { UserInteractor } from './utils';
 import { GCLPlugin } from './plugin/plugin.interface';
@@ -7,19 +7,19 @@ import { PluginService } from './plugin/plugin.service';
 import { ConfigService } from './config';
 import { AnsiblePlugin } from './plugins/ansible/ansible.plugin';
 import { CorePlugin } from './plugins/core/core.plugin';
-import { DI } from './inversify.core-config';
-import { DITypes } from './inversify.core-types';
+import { GCLDependencyCoreTypes } from './inversify.core-types';
 
 export class Wrapper {
   constructor() {
     console.log('Wrapper init started');
     this.pluginService = DI.container.get<PluginService>(
-      DITypes.CORE_TYPES.PluginService
+      GCLDependencyCoreTypes.VALUES.PluginService
     );
     this.configService = DI.container.get<ConfigService>(
-      DITypes.CORE_TYPES.ConfigService
+      GCLDependencyCoreTypes.VALUES.ConfigService
     );
   }
+
   private pluginService: PluginService;
   private configService: ConfigService;
 
@@ -38,14 +38,6 @@ export class Wrapper {
     }
 
     command.showSuggestionAfterError(true);
-
-    await InstallUtilities.checkForUpdates(this.configService);
-    await InstallUtilities.checkAnsibleInstallation(this.configService);
-    // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
-    //   console.error(`Failed to continue. Please fix ${err.message}`);
-    //   exit();
-    // });
-
     await command.parseAsync(args);
   }
 

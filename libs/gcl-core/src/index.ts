@@ -4,5 +4,5 @@ export * from './plugin/plugin.interface';
 export * from './utils/user-interactor.utility';
 export * from './utils/logging';
 export * from './config/config.service';
-export { DIConfig } from './inversify.core-config';
-export { DITypes } from './inversify.core-types';
+export { GCLDependencyInjection } from './inversify.core-config';
+export { GCLDependencyCoreTypes  } from './inversify.core-types';

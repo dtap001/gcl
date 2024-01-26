@@ -4,12 +4,12 @@ import { UserInteractor } from '../../../utils/user-interactor.utility';
 import { inject, injectable } from 'inversify';
 import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
 import { AnsibleConfig } from '../ansible.config';
-import { DITypes } from '../../../inversify.core-types';
+import { GCLDependencyCoreTypes } from '../../../inversify.core-types';
 
 @injectable()
 export class AddFolderCommand implements GCLCommand {
   constructor(
-    @inject(DITypes.CORE_TYPES.ConfigService) private configService: ConfigService
+    @inject(GCLDependencyCoreTypes.VALUES.ConfigService) private configService: ConfigService
   ) {}
   command = 'addFolder';
   description = 'Add folder to ansible working folders';

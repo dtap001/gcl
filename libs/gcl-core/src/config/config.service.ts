@@ -24,6 +24,7 @@ export class ConfigService {
     const config = this.getConfig();
     config[key as string] = value;
     this.saveConfig(config);
+    Logger.debug(`Setting config ${String(key)} to ${value}`);
   }
 
   public getConfigPath(): string {

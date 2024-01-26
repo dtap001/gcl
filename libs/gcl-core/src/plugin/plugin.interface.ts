@@ -1,14 +1,15 @@
+import { Container } from "inversify";
 import { GCLPluginConfig } from "../config/config.interface";
 
 export interface GCLPlugin {
   pluginName: string;
   commands(): GCLCommand[];
   config?: GCLPluginConfig;
-  di: {
+  dependencies: {
     types: {
       [key: string]: symbol;
     };
-    register(container: any): void;
+    register(container: Container): void;
   };
 }
 
@@ -28,3 +29,4 @@ export interface GCLCommandOption {
   description: string;
   default: string | number | boolean;
 }
+

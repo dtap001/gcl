@@ -7,12 +7,13 @@ import path from 'path';
 import { inject, injectable } from 'inversify';
 import { GCLCommand, GCLCommandOption } from '../../../plugin/plugin.interface';
 import { AnsibleConfig } from '../ansible.config';
-import { DITypes } from '../../../inversify.core-types';
+import { GCLDependencyCoreTypes } from '../../../inversify.core-types';
+import { InstallUtilities } from '../utils/install.utilities';
 
 @injectable()
 export class AnsibleRunCommand implements GCLCommand {
   constructor(
-    @inject(DITypes.CORE_TYPES.ConfigService) private configService: ConfigService
+    @inject(GCLDependencyCoreTypes.VALUES.ConfigService) private configService: ConfigService
   ) {}
 
   options?: GCLCommandOption[] | undefined;
@@ -22,6 +23,12 @@ export class AnsibleRunCommand implements GCLCommand {
   async action(options: {
     [x: string]: string | number | boolean;
   }): Promise<void> {
+    await InstallUtilities.checkForUpdates(this.configService);
+    await InstallUtilities.checkAnsibleInstallation(this.configService);
+    // await InstallUtilities.checkSSHPassIntallation().catch((err) => {
+    //   console.error(`Failed to continue. Please fix ${err.message}`);
+    //   exit();
+    // });
     const workingFolder = await PlaybookUtilities.getPlaybookWorkFolder(
       this.configService.getConfig<AnsibleConfig>()['ansible.workingFolders']
     );

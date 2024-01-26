@@ -7,16 +7,16 @@ import { Container } from 'inversify';
 export class AnsiblePlugin implements GCLPlugin {
   pluginName = `ansible`;
   commands = () => [
-    DI.container.get<AnsibleRunCommand>(this.di.types.AnsibleRunCommand),
-    DI.container.get<AddHostCommand>(this.di.types.AddHostCommand),
-    DI.container.get<AddFolderCommand>(this.di.types.AddFolderCommand),
+    DI.container.get<AnsibleRunCommand>(this.dependencies.types.AnsibleRunCommand),
+    DI.container.get<AddHostCommand>(this.dependencies.types.AddHostCommand),
+    DI.container.get<AddFolderCommand>(this.dependencies.types.AddFolderCommand),
   ];
   config = {
     'ansible.workingFolders': '',
     'ansible.defaultHost': '',
     'ansible.checkedAnsibleIntall': false,
   };
-  di = {
+  dependencies = {
     types: {
       AddFolderCommand: Symbol('AddFolderCommand'),
       AddHostCommand: Symbol('AddHostCommand'),
@@ -24,13 +24,13 @@ export class AnsiblePlugin implements GCLPlugin {
     },
     register: (container: Container) => {
       container
-        .bind<AddFolderCommand>(this.di.types.AddFolderCommand)
+        .bind<AddFolderCommand>(this.dependencies.types.AddFolderCommand)
         .to(AddFolderCommand);
       container
-        .bind<AddHostCommand>(this.di.types.AddHostCommand)
+        .bind<AddHostCommand>(this.dependencies.types.AddHostCommand)
         .to(AddHostCommand);
       container
-        .bind<AnsibleRunCommand>(this.di.types.AnsibleRunCommand)
+        .bind<AnsibleRunCommand>(this.dependencies.types.AnsibleRunCommand)
         .to(AnsibleRunCommand);
     },
   };

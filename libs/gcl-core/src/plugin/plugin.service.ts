@@ -4,21 +4,25 @@ import { ConfigService } from '../config';
 import { inject, injectable } from 'inversify';
 import { Logger } from '../utils/logging';
 import { DI } from '../inversify.core-config';
-import { DITypes } from '../inversify.core-types';
+import { GCLDependencyCoreTypes } from '../inversify.core-types';
 
 @injectable()
 export class PluginService {
   plugins: GCLPlugin[] = [];
   constructor(
-    @inject(DITypes.CORE_TYPES.ConfigService) private configService: ConfigService
+    @inject(GCLDependencyCoreTypes.VALUES.ConfigService)
+    private configService: ConfigService
   ) {}
 
   public registerPlugin(plugin: GCLPlugin, commanderCommand: Command) {
     Logger.debug(`Registering plugin ${plugin.pluginName}`);
     this.plugins.push(plugin);
-    plugin.di.register(DI.container);
+    plugin.dependencies.register(DI.container);
+
     plugin.commands().forEach((gclCommand: GCLCommand) => {
-      Logger.debug(`Registering command ${gclCommand.command}`);
+      Logger.debug(
+        `Registering plugin command ${plugin.pluginName}:${gclCommand.command}`
+      );
       const commandAtBuild = commanderCommand
         .command(`${plugin.pluginName}:${gclCommand.command}`)
         .description(gclCommand.description)
