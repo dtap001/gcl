@@ -26,9 +26,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Version affected projects
+      - name: Build affected projects
         shell: bash
         run: npx nx affected --base=last-release --target=build --parallel=1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Release affected projects
+        shell: bash
+        run: npx nx affected --base=last-release --target=release --parallel=1
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
