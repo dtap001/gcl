@@ -1,5 +1,5 @@
-const { composePlugins, withNx } = require('@nx/webpack');
-const { IgnorePlugin, SourceMapDevToolPlugin } = require('webpack');
+import { composePlugins, withNx } from '@nx/webpack';
+import { IgnorePlugin, SourceMapDevToolPlugin } from 'webpack';
 
 // Nx plugins for webpack.
 module.exports = composePlugins(withNx(), (config) => {

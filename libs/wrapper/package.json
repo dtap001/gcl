@@ -10,5 +10,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@godcli/core": "^0.0.3"
+  },
   "type": "module"
 }

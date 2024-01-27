@@ -7,14 +7,39 @@
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
-      "updateBuildableProjectDepsInPackageJson": true,
-      "buildableProjectDepsInPackageJsonType": "dependencies",
       "options": {
+        "buildableProjectDepsInPackageJsonType": "dependencies",
+        "updateBuildableProjectDepsInPackageJson": true,
         "outputPath": "dist/libs/wrapper",
         "tsConfig": "libs/wrapper/tsconfig.lib.json",
         "packageJson": "libs/wrapper/package.json",
         "main": "libs/wrapper/src/index.ts",
         "assets": ["libs/wrapper/*.md"]
+      }
+    },
+    "build_webpack": {
+      "executor": "@nx/webpack:webpack",
+      "verbose": true,
+      "cache": false,
+      "defaultConfiguration": "production",
+      "options": {
+        "webpackConfig": "libs/wrapper/webpack.config.js",
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/libs/wrapper",
+        "main": "libs/wrapper/src/index.ts",
+        "tsConfig": "libs/wrapper/tsconfig.spec.json",
+        "isolatedConfig": true,
+        "generatePackageJson": true
+      },
+      "configurations": {
+        "production": {
+          "sourceMap": false,
+          "externalDependencies": "all",
+          "vendorChunk": true,
+          "webpackConfig": "libs/wrapper/webpack.config.js",
+          "isolatedConfig": true
+        }
       }
     },
     "lint": {

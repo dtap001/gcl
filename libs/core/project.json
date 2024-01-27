@@ -28,38 +28,14 @@
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
-      "updateBuildableProjectDepsInPackageJson": true,
-      "buildableProjectDepsInPackageJsonType": "dependencies",
       "options": {
+        "updateBuildableProjectDepsInPackageJson": true,
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "outputPath": "dist/libs/core",
         "main": "libs/core/src/index.ts",
         "packageJson": "libs/core/package.json",
         "tsConfig": "libs/core/tsconfig.lib.json",
         "assets": ["libs/core/*.md"]
-      }
-    },
-    "build_webpack": {
-      "executor": "@nx/webpack:webpack",
-      "verbose": true,
-      "defaultConfiguration": "production",
-      "options": {
-        "webpackConfig": "libs/core/webpack.config.js",
-        "target": "node",
-        "compiler": "tsc",
-        "outputPath": "dist/libs/core",
-        "main": "libs/core/src/index.ts",
-        "tsConfig": "libs/core/tsconfig.spec.json",
-        "isolatedConfig": true,
-        "generatePackageJson": true
-      },
-      "configurations": {
-        "production": {
-          "sourceMap": false,
-          "externalDependencies": "all",
-          "vendorChunk": true,
-          "webpackConfig": "libs/core/webpack.config.js",
-          "isolatedConfig": true
-        }
       }
     },
     "version": {
