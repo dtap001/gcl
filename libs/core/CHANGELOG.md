@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.4](https://github.com/dtap001/gcl/compare/@gcl/core-2.0.3...@gcl/core-2.0.4) (2024-01-27)
+
 ## [2.0.3](https://github.com/dtap001/gcl/compare/@gcl/core-2.0.2...@gcl/core-2.0.3) (2024-01-27)
 
 
