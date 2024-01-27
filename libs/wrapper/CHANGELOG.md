@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.3](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.2...@gcl/wrapper-0.0.3) (2024-01-27)
+
+### Dependency Updates
+
+* `@godcli/core` updated to version `0.0.2`
+
+### Bug Fixes
+
+* exports ([cff3b42](https://github.com/dtap001/gcl/commit/cff3b425a2c22a428cf616020fae5d59b6dc284f))
+
 ## [0.0.2](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.1...@gcl/wrapper-0.0.2) (2024-01-26)
 
 
