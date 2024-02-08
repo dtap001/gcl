@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.6](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.5...@gcl/wrapper-0.0.6) (2024-02-08)
+
+
+### Bug Fixes
+
+* ci with webpack copy plugin ([35bbcc3](https://github.com/dtap001/gcl/commit/35bbcc347424c6e43262a465035c9aeeb4d97fa9))
+
 ## [0.0.5](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.4...@gcl/wrapper-0.0.5) (2024-02-08)
 
 
