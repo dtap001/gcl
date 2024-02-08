@@ -4,7 +4,7 @@
   "sourceRoot": "libs/wrapper/src",
   "projectType": "library",
   "targets": {
-    "build": {
+    "buildx": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -17,29 +17,24 @@
         "assets": ["libs/wrapper/*.md"]
       }
     },
-    "build_webpack": {
+    "build": {
       "executor": "@nx/webpack:webpack",
       "verbose": true,
       "cache": false,
       "defaultConfiguration": "production",
       "options": {
-        "webpackConfig": "libs/wrapper/webpack.config.js",
+        "webpackConfig": "libs/wrapper/webpack.config.ts",
         "target": "node",
         "compiler": "tsc",
         "outputPath": "dist/libs/wrapper",
         "main": "libs/wrapper/src/index.ts",
-        "tsConfig": "libs/wrapper/tsconfig.spec.json",
-        "isolatedConfig": true,
-        "generatePackageJson": true
+        "tsConfig": "libs/wrapper/tsconfig.json",
+        "sourceMap": false,
+        "externalDependencies": "none",
+        "vendorChunk": true
       },
       "configurations": {
-        "production": {
-          "sourceMap": false,
-          "externalDependencies": "all",
-          "vendorChunk": true,
-          "webpackConfig": "libs/wrapper/webpack.config.js",
-          "isolatedConfig": true
-        }
+        "production": {}
       }
     },
     "lint": {

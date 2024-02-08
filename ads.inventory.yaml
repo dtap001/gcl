@@ -1,7 +1,0 @@
-all:
-  children:
-    test:
-      hosts:
-        ads:
-          ansible_host: asd
-          ansible_user: '{{ server_user }}'
