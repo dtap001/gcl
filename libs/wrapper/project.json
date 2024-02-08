@@ -9,7 +9,6 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "buildableProjectDepsInPackageJsonType": "dependencies",
-        "updateBuildableProjectDepsInPackageJson": true,
         "outputPath": "dist/libs/wrapper",
         "tsConfig": "libs/wrapper/tsconfig.lib.json",
         "packageJson": "libs/wrapper/package.json",
@@ -29,7 +28,7 @@
         "outputPath": "dist/libs/wrapper",
         "main": "libs/wrapper/src/index.ts",
         "tsConfig": "libs/wrapper/tsconfig.json",
-        "sourceMap": false,
+        "sourceMap": true,
         "externalDependencies": "none",
         "vendorChunk": true
       },
