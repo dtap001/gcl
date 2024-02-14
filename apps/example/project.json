@@ -11,7 +11,7 @@
       "options": {
         "platform": "node",
         "outputPath": "dist/apps/example",
-        "format": ["cjs"],
+        "format": ["esm","cjs"],
         "bundle": true,
         "main": "apps/example/src/main.ts",
         "tsConfig": "apps/example/tsconfig.app.json",

@@ -4,19 +4,20 @@
   "sourceRoot": "libs/wrapper/src",
   "projectType": "library",
   "targets": {
-    "buildx": {
+    "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "rootDir": ".",
         "buildableProjectDepsInPackageJsonType": "dependencies",
         "outputPath": "dist/libs/wrapper",
         "tsConfig": "libs/wrapper/tsconfig.lib.json",
         "packageJson": "libs/wrapper/package.json",
-        "main": "libs/wrapper/src/index.ts",
-        "assets": ["libs/wrapper/*.md"]
+        "main": "libs/wrapper/src/index.ts"
+
       }
     },
-    "build": {
+    "webpack": {
       "executor": "@nx/webpack:webpack",
       "verbose": true,
       "cache": false,
@@ -25,12 +26,14 @@
         "webpackConfig": "libs/wrapper/webpack.config.ts",
         "target": "node",
         "compiler": "tsc",
+        "optimization": false,
         "outputPath": "dist/libs/wrapper",
         "main": "libs/wrapper/src/index.ts",
         "tsConfig": "libs/wrapper/tsconfig.json",
         "sourceMap": true,
         "externalDependencies": "none",
-        "vendorChunk": true
+        "vendorChunk": true,
+        "generateExportsField": true
       },
       "configurations": {
         "production": {}
