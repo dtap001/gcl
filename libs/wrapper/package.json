@@ -11,5 +11,6 @@
     "access": "public"
   },
   "dependencies": {},
-  "type": "module"
+  "type": "module",
+  "module": "src/index.ts"
 }
