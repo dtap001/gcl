@@ -1,3 +1,3 @@
-export * from './ansible';
-export * from './core';
-export * from './interfaces';
+export * as ansible from './ansible';
+export * as core from './core';
+export * as interfaces from './interfaces';

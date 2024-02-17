@@ -1,1 +1,2 @@
-export * from '@godcli/core'
+export * from './core';
+export * from '@godcli/core';
