@@ -1,6 +1,6 @@
 {
   "name": "@godcli/wrapper",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "This package helps you to interactively select and run ansible playbooks on your inventory of hosts.",
   "repository": {
     "type": "git",

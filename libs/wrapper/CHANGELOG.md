@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.0.13](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.12...@gcl/wrapper-0.0.13) (2024-02-17)
+
+
+### Bug Fixes
+
+* module path ([cee4c61](https://github.com/dtap001/gcl/commit/cee4c61f072cf190e11460fc0b81a1dc99ec9ae2))
+
 ## [0.0.12](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.11...@gcl/wrapper-0.0.12) (2024-02-16)
 
 
