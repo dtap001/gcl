@@ -1,3 +1,3 @@
-export * from './core/';
+export * as core from './core';
 export * from './wrapper';
-export * from './plugins';
+export * as plugins from './plugins';
