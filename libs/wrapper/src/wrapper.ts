@@ -43,7 +43,7 @@ export class Wrapper {
     );
     const commandRealName = result?.split(separator)[0];
     if(!commandRealName){
-      Logger.info('No command selected. Exiting');
+      Logger.info('No command selected. Exiting.');
       return;
     }
     args.push(commandRealName);
