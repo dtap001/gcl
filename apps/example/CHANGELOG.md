@@ -2,6 +2,26 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.0.0](https://github.com/dtap001/gcl/compare/@gcl/example-2.0.4...@gcl/example-3.0.0) (2024-02-17)
+
+### Dependency Updates
+
+* `@godcli/wrapper` updated to version `2.0.4`
+* `@godcli/core` updated to version `2.0.4`
+
+### ⚠ BREAKING CHANGES
+
+* forced bump for example
+
+### Features
+
+* forced bump for example ([99ae3ad](https://github.com/dtap001/gcl/commit/99ae3adf28e0faca4577f3ef0e0670dd957aec04))
+
+
+### Bug Fixes
+
+* build ([a5969f8](https://github.com/dtap001/gcl/commit/a5969f89039c547d741b0f974db4ab2277b335cb))
+
 ## [2.0.5](https://github.com/dtap001/gcl/compare/@gcl/example-2.0.4...@gcl/example-2.0.5) (2024-01-27)
 
 ### Dependency Updates
