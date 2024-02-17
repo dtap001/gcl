@@ -2,6 +2,22 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.0](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.14...@gcl/wrapper-1.0.0) (2024-02-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* forced bump core
+
+### Features
+
+* forced bump core ([7d9567c](https://github.com/dtap001/gcl/commit/7d9567c39f002a22475ccde57be65b5e80639f5f))
+
+
+### Bug Fixes
+
+* export as ([6a5f1b5](https://github.com/dtap001/gcl/commit/6a5f1b5ae6b72eb4f5e924721011837cc34add02))
+
 ## [0.0.14](https://github.com/dtap001/gcl/compare/@gcl/wrapper-0.0.13...@gcl/wrapper-0.0.14) (2024-02-17)
 
 
